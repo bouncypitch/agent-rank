@@ -24,6 +24,7 @@ def wilson(k, n, z=1.96):
 
 def main():
     rows = [json.loads(l) for l in (ROOT / "runs" / "final_results.jsonl").read_text().splitlines()]
+    rows = [r for r in rows if r["index"] < 5]  # Amendment 2
     targets = sorted({r["index"] for r in rows})
     rate = {v: np.array([np.mean([r["selected"] for r in rows if r["index"] == i and r["version"] == v]) for i in targets])
             for v in VERSIONS}

@@ -43,3 +43,9 @@ Real Claude Opus web-search calls cost ~$0.16 each, which makes the original des
 - **Baselines:** generic = "Improve this web page."; placebo = sentence-by-sentence rephrase keeping facts, order and structure, length-matched to the optimized version. Both use the same editor model, honesty rules and claim checker as the optimizer.
 - **Analysis:** `agentrank/analyze.py`, unchanged after this commit. **Pass (single engine):** optimized beats original, generic and placebo, each paired difference > 0 with Holm-corrected bootstrap CI excluding zero. Since only one engine is tested, a pass supports the hypothesis for Claude Opus 5.5 only.
 - **Secondary** and **simulator validity** as before; simulator validity was already measured on training questions for all three engines (reported in the demo, including the weak per-question correlations).
+
+---
+
+## Amendment 2 — committed after 78 of 320 trials had run, **before any of those results were looked at**
+
+Real final-test calls cost ~$0.067 each (not the ~$0.045 estimated), so the Anthropic balance ran out at 78 trials. To stay within the $40 cap (author's decision), the final test is reduced to **the first 5 targets** of `data/targets.json` (Standard Bots, Kassow Robots, Franka Robotics, Elite Robots, Fairino) × 8 held-out questions × 4 versions = **160 trials**. Everything else in Amendment 1, including `agentrank/analyze.py`, is unchanged. With only 5 targets the bootstrap over targets is coarse; the result is reported as weaker evidence accordingly. Trials already run for targets 6–10 (if any) are excluded from the analysis.

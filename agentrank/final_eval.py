@@ -20,7 +20,7 @@ from agentrank.mentions import ranked_brands
 from agentrank.store import cached_call
 
 ROOT = Path(__file__).resolve().parent.parent
-N_TARGETS, N_QUESTIONS, POOL = 10, 8, 10
+N_TARGETS, N_QUESTIONS, POOL = 5, 8, 10  # Amendment 2: 5 targets (budget)
 VERSIONS = ["original", "generic", "placebo", "optimized"]
 
 
@@ -39,7 +39,8 @@ def main():
     targets = json.loads((ROOT / "data" / "targets.json").read_text())["targets"][:N_TARGETS]
     questions = json.loads((ROOT / "data" / "queries.json").read_text())["heldout"][:N_QUESTIONS]
     probe = validate.load_probe("perplexity", split="heldout")
-    versions = {i: baselines.build(i) for i in range(N_TARGETS)}
+    with ThreadPoolExecutor(5) as ex:
+        versions = dict(zip(range(N_TARGETS), ex.map(baselines.build, range(N_TARGETS))))
     (ROOT / "runs" / "final_versions.json").write_text(json.dumps(versions, indent=1))
 
     jobs = []
@@ -56,7 +57,7 @@ def main():
 
     def run(job):
         i, t, q, v, pool, pos = job
-        r = cached_call("final", {"model": MODEL, "query": q, "pool": pool}, lambda: _answer(q, pool), est_cost=0.06)
+        r = cached_call("final", {"model": MODEL, "query": q, "pool": pool}, lambda: _answer(q, pool), est_cost=0.045)
         brands = ranked_brands(r["text"], optimizer.target_aliases(t["name"]))
         return {"target": t["name"], "index": i, "question": q, "version": v, "position": pos,
                 "selected": t["name"] in brands[:3], "rank": brands.index(t["name"]) + 1 if t["name"] in brands else None}
