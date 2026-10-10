@@ -13,10 +13,18 @@ from agentrank.mentions import ranked_brands
 from agentrank.store import cached_call
 
 MODEL = os.getenv("SIM_MODEL", "claude-haiku-5-5")
-PAGE_CHARS = 3000   # per candidate page, keeps each call ~6-8k tokens
-POOL_SIZE = 8
-SYSTEM = ("You are an AI assistant answering a buyer's question. You searched the web and got the results below. "
-          "Answer using only these results, recommend specific products, and cite results by number.")
+PAGE_CHARS = int(os.getenv("SIM_PAGE_CHARS", "2500"))
+POOL_SIZE = int(os.getenv("SIM_POOL_SIZE", "12"))
+# v1 said "answer using only these results" and over-trusted vendor listicles (r=-0.05 vs Perplexity).
+# v2 mirrors how answer engines actually behave: search results plus their own knowledge.
+SIM_VERSION = os.getenv("SIM_VERSION", "v2")
+SYSTEMS = {
+    "v1": ("You are an AI assistant answering a buyer's question. You searched the web and got the results below. "
+           "Answer using only these results, recommend specific products, and cite results by number."),
+    "v2": ("You are an AI assistant answering a buyer's question. You searched the web and got the results below. "
+           "Combine these results with your own knowledge to recommend specific products, and cite results by number."),
+}
+SYSTEM = SYSTEMS[SIM_VERSION]
 
 
 def build_pool(urls: list[str], swap: dict[str, str] | None = None) -> list[tuple[str, str]]:
@@ -48,5 +56,5 @@ def simulate(query: str, pool: list[tuple[str, str]], sample: int, extra_brands:
     """One simulated answer, with the pool order shuffled per sample to cancel position bias."""
     order = pool[:]
     random.Random(f"{query}|{sample}").shuffle(order)
-    r = cached_call("sim", {"model": MODEL, "query": query, "pool": order}, lambda: _answer(query, order), est_cost=0.003)
+    r = cached_call("sim", {"model": MODEL, "v": SIM_VERSION, "query": query, "pool": order}, lambda: _answer(query, order), est_cost=0.003)
     return ranked_brands(r["text"], extra_brands)

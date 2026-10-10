@@ -1,5 +1,6 @@
 """OpenAI (ChatGPT-style) as an AI answer engine, via the Responses API with web search."""
 import os
+import re
 
 from openai import OpenAI
 
@@ -43,6 +44,11 @@ def _ask(query: str) -> tuple[dict, float]:
             "retrieved": list(dict.fromkeys(retrieved)), "stop_reason": resp.status}, EST_COST
 
 
+def _clean(url: str) -> str:
+    return re.sub(r"[?&]utm_source=openai$", "", url)
+
+
 def ask(query: str, sample: int = 0) -> dict:
-    return cached_call("engine:openai", {"model": MODEL, "v": PROMPT_VERSION, "query": query, "sample": sample},
+    r = cached_call("engine:openai", {"model": MODEL, "v": PROMPT_VERSION, "query": query, "sample": sample},
                        lambda: _ask(query), est_cost=EST_COST)
+    return {**r, "cited": [_clean(u) for u in r["cited"]], "retrieved": [_clean(u) for u in r["retrieved"]]}

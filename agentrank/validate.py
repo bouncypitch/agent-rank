@@ -41,6 +41,7 @@ def rates(brand_lists: list[list[str]], k: int = 3) -> Counter:
 def main(engine: str, samples: int, workers: int = 6):
     by_q = load_probe(engine)
     pairs, per_q = [], []
+    agg_r, agg_s = Counter(), Counter()  # brand-level: mean rate across questions
 
     def one(q):
         rows = by_q[q]
@@ -56,6 +57,8 @@ def main(engine: str, samples: int, workers: int = 6):
                 continue
             for b in set(real) | set(sim):
                 pairs.append((real.get(b, 0.0), sim.get(b, 0.0)))
+                agg_r[b] += real.get(b, 0.0)
+                agg_s[b] += sim.get(b, 0.0)
             top_real = max(real, key=real.get) if real else None
             per_q.append((q, top_real, top_real in sim and sim[top_real] > 0))
 
@@ -63,6 +66,11 @@ def main(engine: str, samples: int, workers: int = 6):
     print(f"{engine}: {len(per_q)} questions, {len(pairs)} (question, brand) pairs")
     print(f"  Pearson r  = {pearsonr(xs, ys)[0]:.2f}   (bar: SimGym r≈0.55)")
     print(f"  Spearman ρ = {spearmanr(xs, ys)[0]:.2f}")
+    brands = sorted(set(agg_r) | set(agg_s))
+    ar, as_ = [agg_r[b] for b in brands], [agg_s[b] for b in brands]
+    print(f"  brand-level Pearson r = {pearsonr(ar, as_)[0]:.2f}, Spearman ρ = {spearmanr(ar, as_)[0]:.2f} over {len(brands)} brands")
+    top = [b for b in brands if b not in ("Universal Robots", "FANUC CRX")]
+    print(f"  brand-level Pearson r without UR and FANUC = {pearsonr([agg_r[b] for b in top], [agg_s[b] for b in top])[0]:.2f}")
     print(f"  real #1 brand also recommended by simulator: {sum(h for *_, h in per_q) / len(per_q):.0%} of questions")
     print(f"  spent so far: ${store.spent():.2f}")
     return pairs
