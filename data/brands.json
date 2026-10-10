@@ -1,0 +1,149 @@
+{
+  "_note": "Cobot / robot-arm brands. aliases are matched case-insensitively as whole words in answer text.",
+  "brands": {
+    "Universal Robots": [
+      "Universal Robots",
+      "UR3e",
+      "UR5e",
+      "UR10e",
+      "UR16e",
+      "UR15",
+      "UR20",
+      "UR30"
+    ],
+    "FANUC CRX": [
+      "FANUC CRX",
+      "Fanuc CRX",
+      "CRX-10iA",
+      "CRX-20iA",
+      "CRX-30iA",
+      "CRX-5iA",
+      "CRX"
+    ],
+    "ABB": [
+      "ABB GoFa",
+      "GoFa",
+      "SWIFTI",
+      "YuMi",
+      "ABB"
+    ],
+    "KUKA": [
+      "KUKA",
+      "LBR iisy",
+      "LBR iiwa"
+    ],
+    "Yaskawa": [
+      "Yaskawa",
+      "Motoman HC",
+      "HC10",
+      "HC20"
+    ],
+    "Doosan Robotics": [
+      "Doosan"
+    ],
+    "Techman Robot": [
+      "Techman",
+      "TM5",
+      "TM12",
+      "TM14",
+      "TM25S"
+    ],
+    "Kassow Robots": [
+      "Kassow"
+    ],
+    "Franka Robotics": [
+      "Franka",
+      "Franka Research 3",
+      "FR3"
+    ],
+    "Kinova": [
+      "Kinova"
+    ],
+    "Standard Bots": [
+      "Standard Bots",
+      "RO1"
+    ],
+    "Elite Robots": [
+      "Elite Robots",
+      "Elite Robot"
+    ],
+    "JAKA": [
+      "JAKA"
+    ],
+    "AUBO": [
+      "AUBO"
+    ],
+    "Dobot": [
+      "Dobot"
+    ],
+    "Denso": [
+      "Denso",
+      "COBOTTA"
+    ],
+    "Neura Robotics": [
+      "Neura",
+      "MAiRA",
+      "LARA"
+    ],
+    "Han's Robot": [
+      "Han's Robot",
+      "Elfin"
+    ],
+    "UFactory": [
+      "UFactory",
+      "xArm",
+      "Lite 6",
+      "Lite6"
+    ],
+    "Kawasaki": [
+      "Kawasaki",
+      "duAro"
+    ],
+    "Mitsubishi Electric": [
+      "MELFA ASSISTA",
+      "Mitsubishi Electric"
+    ],
+    "Productive Robotics": [
+      "Productive Robotics",
+      "OB7"
+    ],
+    "Flexiv": [
+      "Flexiv",
+      "Rizon"
+    ],
+    "Agile Robots": [
+      "Agile Robots"
+    ],
+    "Rokae": [
+      "Rokae"
+    ],
+    "Fairino": [
+      "Fairino",
+      "FAIRINO"
+    ],
+    "Hirebotics": [
+      "Hirebotics"
+    ],
+    "Vectis Automation": [
+      "Vectis"
+    ],
+    "Lincoln Electric Cooper": [
+      "Lincoln Electric Cooper",
+      "Cooper cobot",
+      "Lincoln Cooper"
+    ],
+    "Miller Copilot": [
+      "Miller Copilot"
+    ],
+    "THG Automation": [
+      "THG Automation",
+      "THG"
+    ],
+    "Path Robotics": [
+      "Path Robotics"
+    ],
+    "Formic": [
+      "Formic"
+    ]
+  }
+}
