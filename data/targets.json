@@ -1,0 +1,77 @@
+{
+  "_note": "Chosen before any optimization (see PREREGISTRATION.md). Order = optimization order for the bandit learning curve.",
+  "targets": [
+    {
+      "name": "Standard Bots",
+      "url": "https://standardbots.com/"
+    },
+    {
+      "name": "Kassow Robots",
+      "url": "https://www.kassowrobots.com/"
+    },
+    {
+      "name": "Franka Robotics",
+      "url": "https://franka.de/"
+    },
+    {
+      "name": "Elite Robots",
+      "url": "https://www.eliterobots.com/"
+    },
+    {
+      "name": "Fairino",
+      "url": "https://www.fairino-robot.com/"
+    },
+    {
+      "name": "Productive Robotics",
+      "url": "https://www.productiverobotics.com/"
+    },
+    {
+      "name": "Neura Robotics",
+      "url": "https://neura-robotics.com/"
+    },
+    {
+      "name": "Flexiv",
+      "url": "https://www.flexiv.com/"
+    },
+    {
+      "name": "Agile Robots",
+      "url": "https://www.agile-robots.com/"
+    },
+    {
+      "name": "Rokae",
+      "url": "https://www.rokae.com/en/"
+    },
+    {
+      "name": "Techman Robot",
+      "url": "https://www.tm-robot.com/en/"
+    },
+    {
+      "name": "AUBO",
+      "url": "https://www.aubo-cobot.com/"
+    },
+    {
+      "name": "Dobot",
+      "url": "https://www.dobot-robots.com/"
+    },
+    {
+      "name": "Doosan Robotics",
+      "url": "https://www.doosanrobotics.com/en/"
+    },
+    {
+      "name": "Hirebotics",
+      "url": "https://hirebotics.com/"
+    },
+    {
+      "name": "Vectis Automation",
+      "url": "https://vectisautomation.com/"
+    },
+    {
+      "name": "Han's Robot",
+      "url": "https://www.hansrobot.net/"
+    },
+    {
+      "name": "Path Robotics",
+      "url": "https://www.path-robotics.com/"
+    }
+  ]
+}

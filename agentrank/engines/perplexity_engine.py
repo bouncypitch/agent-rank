@@ -1,5 +1,7 @@
 """Perplexity as an AI answer engine, via its Agent API (search built in)."""
 import os
+import random
+import time
 
 import requests
 
@@ -12,8 +14,12 @@ URL = "https://api.perplexity.ai/v1/responses"
 
 
 def _ask(query: str) -> tuple[dict, float]:
-    r = requests.post(URL, timeout=120, headers={"Authorization": f"Bearer {os.getenv('PERPLEXITY_API_KEY')}"},
-                      json={"preset": PRESET, "instructions": SYSTEM, "input": query})
+    for attempt in range(8):  # new accounts get a low rate limit; back off on 429
+        r = requests.post(URL, timeout=120, headers={"Authorization": f"Bearer {os.getenv('PERPLEXITY_API_KEY')}"},
+                          json={"preset": PRESET, "instructions": SYSTEM, "input": query})
+        if r.status_code != 429:
+            break
+        time.sleep(min(60, float(r.headers.get("retry-after") or 2 ** attempt)) + random.random())
     r.raise_for_status()
     d = r.json()
     text, cited, retrieved = [], [], []
