@@ -1,18 +1,57 @@
 {
   "_note": "One entry per scene: the image shown and the line spoken over it (macOS `say`). [RESULT] lines are filled in from analyze.py output before rendering.",
   "scenes": [
-    {"image": "cover.png", "text": "AgentRank. Getting recommended by the AI agents that now decide where buyers go."},
-    {"image": "frontdoor.png", "text": "Buyers no longer start with a list of links. They ask ChatGPT, Claude or Perplexity which cobot to buy for welding, and the answer names three brands. In our probes, each engine read twenty to sixty pages before choosing."},
-    {"image": "gap.png", "text": "Today's optimizers learn from your own traffic. A cobot startup gets a few hundred visits a month, which is not enough signal. Those companies are left out."},
-    {"image": "insight.png", "text": "Our idea: the living internet already shows what wins. So we learn a model of how the engines choose, and optimize inside that model. No traffic needed."},
-    {"image": "pipeline.png", "text": "Five steps. Probe the real engines. Build a cheap simulator from the pages they read. Let a bandit choose an edit. Check that the edit invents nothing. Then prove it on the real engine, with questions it never saw."},
-    {"image": "probe.png", "text": "Here is what the engines recommend today. Universal Robots and FANUC dominate. But the engines disagree on the challengers, and that spread is the opportunity."},
-    {"image": "simulator.png", "text": "Can a cheap simulator stand in for the engines? Our first version failed. It trusted vendors' own blog posts. Once it blended sources with its own knowledge, like the real engines do, its brand rankings matched all three engines. Per-question predictions stay noisy, and we say so."},
-    {"image": "demo_card.png", "text": "This is the product. For each company: how often it is recommended today, the optimization rounds, and its own page before and after, with every change checked against the original."},
-    {"image": "optimizer.png", "text": "The checker is strict. When an edit said the whole robot was food-safe, but the original said that only about the joints, the edit was thrown out."},
-    {"image": "proof.png", "text": "Every objection has a test. A real engine, not our simulator. Held-out questions. A generic AI rewrite and a placebo edit as baselines. And the hypothesis, the companies and the analysis were committed to git before the test ran."},
-    {"image": "results.png", "text": "[RESULT]"},
-    {"image": "future.png", "text": "Where this goes: an always-on monitor of your share of AI answers, the same simulator for agent-facing pages and protocols, shared calibration across every connected site, and a trust standard for self-optimizing websites."},
-    {"image": "close.png", "text": "Coframe optimizes your site for the visitors you have. AgentRank gets you recommended by the agents deciding where visitors go."}
+    {
+      "image": "cover.png",
+      "text": "AgentRank. Getting recommended by the AI agents that now decide where buyers go."
+    },
+    {
+      "image": "frontdoor.png",
+      "text": "Buyers no longer start with a list of links. They ask ChatGPT, Claude or Perplexity which cobot to buy for welding, and the answer names three brands. In our probes, each engine read twenty to sixty pages before choosing."
+    },
+    {
+      "image": "gap.png",
+      "text": "Today's optimizers learn from your own traffic. A cobot startup gets a few hundred visits a month, which is not enough signal. Those companies are left out."
+    },
+    {
+      "image": "insight.png",
+      "text": "Our idea: the living internet already shows what wins. So we learn a model of how the engines choose, and optimize inside that model. No traffic needed."
+    },
+    {
+      "image": "pipeline.png",
+      "text": "Five steps. Probe the real engines. Build a cheap simulator from the pages they read. Let a bandit choose an edit. Check that the edit invents nothing. Then prove it on the real engine, with questions it never saw."
+    },
+    {
+      "image": "probe.png",
+      "text": "Here is what the engines recommend today. Universal Robots and FANUC dominate. But the engines disagree on the challengers, and that spread is the opportunity."
+    },
+    {
+      "image": "simulator.png",
+      "text": "Can a cheap simulator stand in for the engines? Our first version failed. It trusted vendors' own blog posts. Once it blended sources with its own knowledge, like the real engines do, its brand rankings matched all three engines. Per-question predictions stay noisy, and we say so."
+    },
+    {
+      "image": "demo_card.png",
+      "text": "This is the product. For each company: how often each engine recommends it today, the optimization rounds, and its own page before and after, with every change checked against the original."
+    },
+    {
+      "image": "optimizer.png",
+      "text": "The checker is strict. When an edit said the whole robot was food-safe, but the original said that only about the joints, the edit was thrown out."
+    },
+    {
+      "image": "proof.png",
+      "text": "Every objection has a test. A real engine, not our simulator. Held-out questions. A generic AI rewrite and a placebo edit as baselines. And the hypothesis, the companies and the analysis were committed to git before the test ran."
+    },
+    {
+      "image": "results.png",
+      "text": "The pre-registered test failed. On the real engine, optimized pages were recommended thirty-two and a half percent of the time, versus twenty-seven and a half for the originals, and thirty-five for a generic AI rewrite. None of the differences were significant. The reason is noise. The same unchanged page, asked twice, scored fifty and thirty-eight percent. Our simulated gains sat inside that noise, so the optimizer kept lucky edits. The fix is clear: far more simulator runs per edit, and more questions. We would rather show you an honest failure than a cherry-picked win."
+    },
+    {
+      "image": "future.png",
+      "text": "Where this goes: an always-on monitor of your share of AI answers, the same simulator for agent-facing pages and protocols, shared calibration across every connected site, and a trust standard for self-optimizing websites."
+    },
+    {
+      "image": "close.png",
+      "text": "Coframe optimizes for the visitors you have. AgentRank is building the way to get recommended by the agents that send them. Today we shipped a validated simulator, an honest optimizer, and a pre-registered test that told us exactly what to fix next."
+    }
   ]
 }

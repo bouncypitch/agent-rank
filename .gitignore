@@ -2,3 +2,5 @@
 .venv/
 runs/*.sqlite
 __pycache__/
+video/build/
+video/frames/_tmp.html

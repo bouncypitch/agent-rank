@@ -39,14 +39,14 @@ def final_rates():
 
 def company_card(res, shares, final):
     t = res["target"]
-    eng = " · ".join(f"{e.capitalize()} {shares[e].get(t, 0):.0%}" for e in ("claude", "openai", "perplexity"))
+    eng = " · ".join(f"{n} {shares[e].get(t, 0):.0%}" for e, n in (("claude", "Claude"), ("openai", "OpenAI"), ("perplexity", "Perplexity")))
     trace = "".join(
         f"<li><b>Round {h['round']}</b>: tried {', '.join(OPS.get(o, o) for o in h['ops'])} → best {h['score']:.0%}</li>"
         for h in res["history"][1:])
     fin = final.get(t)
     fin_html = ""
     if fin:
-        bars = "".join(f"<div class='bar'><span>{v}</span><div style='width:{fin.get(v, 0) * 100:.0f}%' class='fill {v}'></div><em>{fin.get(v, 0):.0%}</em></div>"
+        bars = "".join(f"<div class='bar'><span>{v}</span><div class='track'><div style='width:{fin.get(v, 0) * 100:.0f}%' class='fill {v}'></div></div><em>{fin.get(v, 0):.0%}</em></div>"
                        for v in ("original", "generic", "placebo", "optimized"))
         fin_html = f"<h4>Real engine (Claude Opus 5.5), held-out questions</h4>{bars}"
     return f"""
@@ -85,7 +85,7 @@ main{{max-width:1280px;margin:0 auto;padding:24px 16px}}
 pre{{white-space:pre-wrap;background:#F2EFE7;border-radius:10px;padding:14px;font-size:13px;max-height:420px;overflow:auto}}
 .badge{{background:#E6F0E4;color:#24572A;border-radius:999px;padding:2px 10px;font-size:13px;margin-left:6px}}
 .bar{{display:grid;grid-template-columns:110px 1fr 56px;align-items:center;gap:10px;margin:6px 0}} .bar span{{font-size:15px}}
-.bar>div{{height:18px;border-radius:9px;background:#C9C3B6}} .bar .optimized{{background:var(--accent)}} .bar em{{font-style:normal;font-size:15px}}
+.track{{height:18px;border-radius:9px;background:#ECE7DC}} .fill{{height:18px;border-radius:9px;background:#9C958A}} .fill.optimized{{background:var(--accent)}} .bar em{{font-style:normal;font-size:15px}}
 </style></head><body>
 <div class="top"><h1>AgentRank — get recommended by the AI agents</h1><p>Cobot companies · real probes of Claude, OpenAI and Perplexity · simulator-guided, checker-verified rewrites</p></div>
 <nav>{nav}</nav><main>{cards}</main></body></html>"""
