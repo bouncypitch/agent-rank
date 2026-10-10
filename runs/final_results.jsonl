@@ -1,0 +1,160 @@
+{"target": "Standard Bots", "index": 0, "question": "I run a small welding shop. Which collaborative robot would you recommend?", "version": "original", "position": 9, "selected": false, "rank": 6}
+{"target": "Standard Bots", "index": 0, "question": "I run a small welding shop. Which collaborative robot would you recommend?", "version": "generic", "position": 9, "selected": false, "rank": 6}
+{"target": "Standard Bots", "index": 0, "question": "I run a small welding shop. Which collaborative robot would you recommend?", "version": "placebo", "position": 9, "selected": false, "rank": 6}
+{"target": "Standard Bots", "index": 0, "question": "I run a small welding shop. Which collaborative robot would you recommend?", "version": "optimized", "position": 9, "selected": false, "rank": 6}
+{"target": "Standard Bots", "index": 0, "question": "Recommend a cobot for tending two Haas CNC machines", "version": "original", "position": 4, "selected": true, "rank": 2}
+{"target": "Standard Bots", "index": 0, "question": "Recommend a cobot for tending two Haas CNC machines", "version": "generic", "position": 4, "selected": true, "rank": 2}
+{"target": "Standard Bots", "index": 0, "question": "Recommend a cobot for tending two Haas CNC machines", "version": "placebo", "position": 4, "selected": true, "rank": 1}
+{"target": "Standard Bots", "index": 0, "question": "Recommend a cobot for tending two Haas CNC machines", "version": "optimized", "position": 4, "selected": true, "rank": 2}
+{"target": "Standard Bots", "index": 0, "question": "Which robot arm should I get for stacking cartons onto pallets?", "version": "original", "position": 8, "selected": true, "rank": 1}
+{"target": "Standard Bots", "index": 0, "question": "Which robot arm should I get for stacking cartons onto pallets?", "version": "generic", "position": 8, "selected": true, "rank": 1}
+{"target": "Standard Bots", "index": 0, "question": "Which robot arm should I get for stacking cartons onto pallets?", "version": "placebo", "position": 8, "selected": true, "rank": 1}
+{"target": "Standard Bots", "index": 0, "question": "Which robot arm should I get for stacking cartons onto pallets?", "version": "optimized", "position": 8, "selected": true, "rank": 1}
+{"target": "Standard Bots", "index": 0, "question": "Good beginner-friendly cobot for a factory that has never automated", "version": "original", "position": 4, "selected": false, "rank": null}
+{"target": "Standard Bots", "index": 0, "question": "Good beginner-friendly cobot for a factory that has never automated", "version": "generic", "position": 4, "selected": false, "rank": 7}
+{"target": "Standard Bots", "index": 0, "question": "Good beginner-friendly cobot for a factory that has never automated", "version": "placebo", "position": 4, "selected": false, "rank": null}
+{"target": "Standard Bots", "index": 0, "question": "Good beginner-friendly cobot for a factory that has never automated", "version": "optimized", "position": 4, "selected": false, "rank": 7}
+{"target": "Standard Bots", "index": 0, "question": "Most cost-effective cobot for repetitive pick-and-place work", "version": "original", "position": 3, "selected": false, "rank": null}
+{"target": "Standard Bots", "index": 0, "question": "Most cost-effective cobot for repetitive pick-and-place work", "version": "generic", "position": 3, "selected": false, "rank": 6}
+{"target": "Standard Bots", "index": 0, "question": "Most cost-effective cobot for repetitive pick-and-place work", "version": "placebo", "position": 3, "selected": false, "rank": null}
+{"target": "Standard Bots", "index": 0, "question": "Most cost-effective cobot for repetitive pick-and-place work", "version": "optimized", "position": 3, "selected": false, "rank": 6}
+{"target": "Standard Bots", "index": 0, "question": "Cobot recommendations for a startup building an automated kitchen", "version": "original", "position": 3, "selected": false, "rank": null}
+{"target": "Standard Bots", "index": 0, "question": "Cobot recommendations for a startup building an automated kitchen", "version": "generic", "position": 3, "selected": false, "rank": 4}
+{"target": "Standard Bots", "index": 0, "question": "Cobot recommendations for a startup building an automated kitchen", "version": "placebo", "position": 3, "selected": false, "rank": 6}
+{"target": "Standard Bots", "index": 0, "question": "Cobot recommendations for a startup building an automated kitchen", "version": "optimized", "position": 3, "selected": false, "rank": 4}
+{"target": "Standard Bots", "index": 0, "question": "Which collaborative robot arm is best for researchers using ROS?", "version": "original", "position": 7, "selected": false, "rank": null}
+{"target": "Standard Bots", "index": 0, "question": "Which collaborative robot arm is best for researchers using ROS?", "version": "generic", "position": 7, "selected": false, "rank": null}
+{"target": "Standard Bots", "index": 0, "question": "Which collaborative robot arm is best for researchers using ROS?", "version": "placebo", "position": 7, "selected": false, "rank": null}
+{"target": "Standard Bots", "index": 0, "question": "Which collaborative robot arm is best for researchers using ROS?", "version": "optimized", "position": 7, "selected": false, "rank": null}
+{"target": "Standard Bots", "index": 0, "question": "Alternatives to a UR10e with similar payload but lower price", "version": "original", "position": 3, "selected": false, "rank": 4}
+{"target": "Standard Bots", "index": 0, "question": "Alternatives to a UR10e with similar payload but lower price", "version": "generic", "position": 3, "selected": false, "rank": 4}
+{"target": "Standard Bots", "index": 0, "question": "Alternatives to a UR10e with similar payload but lower price", "version": "placebo", "position": 3, "selected": false, "rank": 4}
+{"target": "Standard Bots", "index": 0, "question": "Alternatives to a UR10e with similar payload but lower price", "version": "optimized", "position": 3, "selected": false, "rank": 4}
+{"target": "Kassow Robots", "index": 1, "question": "I run a small welding shop. Which collaborative robot would you recommend?", "version": "original", "position": 6, "selected": false, "rank": null}
+{"target": "Kassow Robots", "index": 1, "question": "I run a small welding shop. Which collaborative robot would you recommend?", "version": "generic", "position": 6, "selected": false, "rank": 7}
+{"target": "Kassow Robots", "index": 1, "question": "I run a small welding shop. Which collaborative robot would you recommend?", "version": "placebo", "position": 6, "selected": false, "rank": null}
+{"target": "Kassow Robots", "index": 1, "question": "I run a small welding shop. Which collaborative robot would you recommend?", "version": "optimized", "position": 6, "selected": false, "rank": null}
+{"target": "Kassow Robots", "index": 1, "question": "Recommend a cobot for tending two Haas CNC machines", "version": "original", "position": 3, "selected": true, "rank": 3}
+{"target": "Kassow Robots", "index": 1, "question": "Recommend a cobot for tending two Haas CNC machines", "version": "generic", "position": 3, "selected": true, "rank": 3}
+{"target": "Kassow Robots", "index": 1, "question": "Recommend a cobot for tending two Haas CNC machines", "version": "placebo", "position": 3, "selected": true, "rank": 3}
+{"target": "Kassow Robots", "index": 1, "question": "Recommend a cobot for tending two Haas CNC machines", "version": "optimized", "position": 3, "selected": true, "rank": 3}
+{"target": "Kassow Robots", "index": 1, "question": "Which robot arm should I get for stacking cartons onto pallets?", "version": "original", "position": 9, "selected": false, "rank": null}
+{"target": "Kassow Robots", "index": 1, "question": "Which robot arm should I get for stacking cartons onto pallets?", "version": "generic", "position": 9, "selected": false, "rank": null}
+{"target": "Kassow Robots", "index": 1, "question": "Which robot arm should I get for stacking cartons onto pallets?", "version": "placebo", "position": 9, "selected": false, "rank": null}
+{"target": "Kassow Robots", "index": 1, "question": "Which robot arm should I get for stacking cartons onto pallets?", "version": "optimized", "position": 9, "selected": false, "rank": null}
+{"target": "Kassow Robots", "index": 1, "question": "Good beginner-friendly cobot for a factory that has never automated", "version": "original", "position": 6, "selected": false, "rank": null}
+{"target": "Kassow Robots", "index": 1, "question": "Good beginner-friendly cobot for a factory that has never automated", "version": "generic", "position": 6, "selected": false, "rank": null}
+{"target": "Kassow Robots", "index": 1, "question": "Good beginner-friendly cobot for a factory that has never automated", "version": "placebo", "position": 6, "selected": false, "rank": null}
+{"target": "Kassow Robots", "index": 1, "question": "Good beginner-friendly cobot for a factory that has never automated", "version": "optimized", "position": 6, "selected": false, "rank": null}
+{"target": "Kassow Robots", "index": 1, "question": "Most cost-effective cobot for repetitive pick-and-place work", "version": "original", "position": 2, "selected": false, "rank": null}
+{"target": "Kassow Robots", "index": 1, "question": "Most cost-effective cobot for repetitive pick-and-place work", "version": "generic", "position": 2, "selected": false, "rank": null}
+{"target": "Kassow Robots", "index": 1, "question": "Most cost-effective cobot for repetitive pick-and-place work", "version": "placebo", "position": 2, "selected": false, "rank": null}
+{"target": "Kassow Robots", "index": 1, "question": "Most cost-effective cobot for repetitive pick-and-place work", "version": "optimized", "position": 2, "selected": false, "rank": null}
+{"target": "Kassow Robots", "index": 1, "question": "Cobot recommendations for a startup building an automated kitchen", "version": "original", "position": 5, "selected": false, "rank": null}
+{"target": "Kassow Robots", "index": 1, "question": "Cobot recommendations for a startup building an automated kitchen", "version": "generic", "position": 5, "selected": false, "rank": null}
+{"target": "Kassow Robots", "index": 1, "question": "Cobot recommendations for a startup building an automated kitchen", "version": "placebo", "position": 5, "selected": false, "rank": 5}
+{"target": "Kassow Robots", "index": 1, "question": "Cobot recommendations for a startup building an automated kitchen", "version": "optimized", "position": 5, "selected": false, "rank": null}
+{"target": "Kassow Robots", "index": 1, "question": "Which collaborative robot arm is best for researchers using ROS?", "version": "original", "position": 9, "selected": false, "rank": 6}
+{"target": "Kassow Robots", "index": 1, "question": "Which collaborative robot arm is best for researchers using ROS?", "version": "generic", "position": 9, "selected": false, "rank": null}
+{"target": "Kassow Robots", "index": 1, "question": "Which collaborative robot arm is best for researchers using ROS?", "version": "placebo", "position": 9, "selected": false, "rank": null}
+{"target": "Kassow Robots", "index": 1, "question": "Which collaborative robot arm is best for researchers using ROS?", "version": "optimized", "position": 9, "selected": false, "rank": null}
+{"target": "Kassow Robots", "index": 1, "question": "Alternatives to a UR10e with similar payload but lower price", "version": "original", "position": 9, "selected": false, "rank": null}
+{"target": "Kassow Robots", "index": 1, "question": "Alternatives to a UR10e with similar payload but lower price", "version": "generic", "position": 9, "selected": false, "rank": null}
+{"target": "Kassow Robots", "index": 1, "question": "Alternatives to a UR10e with similar payload but lower price", "version": "placebo", "position": 9, "selected": false, "rank": null}
+{"target": "Kassow Robots", "index": 1, "question": "Alternatives to a UR10e with similar payload but lower price", "version": "optimized", "position": 9, "selected": false, "rank": null}
+{"target": "Franka Robotics", "index": 2, "question": "I run a small welding shop. Which collaborative robot would you recommend?", "version": "original", "position": 9, "selected": false, "rank": null}
+{"target": "Franka Robotics", "index": 2, "question": "I run a small welding shop. Which collaborative robot would you recommend?", "version": "generic", "position": 9, "selected": false, "rank": null}
+{"target": "Franka Robotics", "index": 2, "question": "I run a small welding shop. Which collaborative robot would you recommend?", "version": "placebo", "position": 9, "selected": false, "rank": null}
+{"target": "Franka Robotics", "index": 2, "question": "I run a small welding shop. Which collaborative robot would you recommend?", "version": "optimized", "position": 9, "selected": false, "rank": null}
+{"target": "Franka Robotics", "index": 2, "question": "Recommend a cobot for tending two Haas CNC machines", "version": "original", "position": 3, "selected": true, "rank": 3}
+{"target": "Franka Robotics", "index": 2, "question": "Recommend a cobot for tending two Haas CNC machines", "version": "generic", "position": 3, "selected": false, "rank": null}
+{"target": "Franka Robotics", "index": 2, "question": "Recommend a cobot for tending two Haas CNC machines", "version": "placebo", "position": 3, "selected": false, "rank": null}
+{"target": "Franka Robotics", "index": 2, "question": "Recommend a cobot for tending two Haas CNC machines", "version": "optimized", "position": 3, "selected": true, "rank": 3}
+{"target": "Franka Robotics", "index": 2, "question": "Which robot arm should I get for stacking cartons onto pallets?", "version": "original", "position": 7, "selected": false, "rank": null}
+{"target": "Franka Robotics", "index": 2, "question": "Which robot arm should I get for stacking cartons onto pallets?", "version": "generic", "position": 7, "selected": false, "rank": null}
+{"target": "Franka Robotics", "index": 2, "question": "Which robot arm should I get for stacking cartons onto pallets?", "version": "placebo", "position": 7, "selected": false, "rank": null}
+{"target": "Franka Robotics", "index": 2, "question": "Which robot arm should I get for stacking cartons onto pallets?", "version": "optimized", "position": 7, "selected": false, "rank": null}
+{"target": "Franka Robotics", "index": 2, "question": "Good beginner-friendly cobot for a factory that has never automated", "version": "original", "position": 1, "selected": false, "rank": 8}
+{"target": "Franka Robotics", "index": 2, "question": "Good beginner-friendly cobot for a factory that has never automated", "version": "generic", "position": 1, "selected": false, "rank": 7}
+{"target": "Franka Robotics", "index": 2, "question": "Good beginner-friendly cobot for a factory that has never automated", "version": "placebo", "position": 1, "selected": false, "rank": null}
+{"target": "Franka Robotics", "index": 2, "question": "Good beginner-friendly cobot for a factory that has never automated", "version": "optimized", "position": 1, "selected": false, "rank": 8}
+{"target": "Franka Robotics", "index": 2, "question": "Most cost-effective cobot for repetitive pick-and-place work", "version": "original", "position": 8, "selected": true, "rank": 2}
+{"target": "Franka Robotics", "index": 2, "question": "Most cost-effective cobot for repetitive pick-and-place work", "version": "generic", "position": 8, "selected": true, "rank": 2}
+{"target": "Franka Robotics", "index": 2, "question": "Most cost-effective cobot for repetitive pick-and-place work", "version": "placebo", "position": 8, "selected": true, "rank": 2}
+{"target": "Franka Robotics", "index": 2, "question": "Most cost-effective cobot for repetitive pick-and-place work", "version": "optimized", "position": 8, "selected": true, "rank": 2}
+{"target": "Franka Robotics", "index": 2, "question": "Cobot recommendations for a startup building an automated kitchen", "version": "original", "position": 5, "selected": true, "rank": 2}
+{"target": "Franka Robotics", "index": 2, "question": "Cobot recommendations for a startup building an automated kitchen", "version": "generic", "position": 5, "selected": false, "rank": 5}
+{"target": "Franka Robotics", "index": 2, "question": "Cobot recommendations for a startup building an automated kitchen", "version": "placebo", "position": 5, "selected": false, "rank": null}
+{"target": "Franka Robotics", "index": 2, "question": "Cobot recommendations for a startup building an automated kitchen", "version": "optimized", "position": 5, "selected": false, "rank": 6}
+{"target": "Franka Robotics", "index": 2, "question": "Which collaborative robot arm is best for researchers using ROS?", "version": "original", "position": 1, "selected": true, "rank": 1}
+{"target": "Franka Robotics", "index": 2, "question": "Which collaborative robot arm is best for researchers using ROS?", "version": "generic", "position": 1, "selected": true, "rank": 1}
+{"target": "Franka Robotics", "index": 2, "question": "Which collaborative robot arm is best for researchers using ROS?", "version": "placebo", "position": 1, "selected": true, "rank": 1}
+{"target": "Franka Robotics", "index": 2, "question": "Which collaborative robot arm is best for researchers using ROS?", "version": "optimized", "position": 1, "selected": true, "rank": 1}
+{"target": "Franka Robotics", "index": 2, "question": "Alternatives to a UR10e with similar payload but lower price", "version": "original", "position": 8, "selected": false, "rank": null}
+{"target": "Franka Robotics", "index": 2, "question": "Alternatives to a UR10e with similar payload but lower price", "version": "generic", "position": 8, "selected": false, "rank": null}
+{"target": "Franka Robotics", "index": 2, "question": "Alternatives to a UR10e with similar payload but lower price", "version": "placebo", "position": 8, "selected": false, "rank": null}
+{"target": "Franka Robotics", "index": 2, "question": "Alternatives to a UR10e with similar payload but lower price", "version": "optimized", "position": 8, "selected": false, "rank": null}
+{"target": "Elite Robots", "index": 3, "question": "I run a small welding shop. Which collaborative robot would you recommend?", "version": "original", "position": 6, "selected": false, "rank": null}
+{"target": "Elite Robots", "index": 3, "question": "I run a small welding shop. Which collaborative robot would you recommend?", "version": "generic", "position": 6, "selected": false, "rank": null}
+{"target": "Elite Robots", "index": 3, "question": "I run a small welding shop. Which collaborative robot would you recommend?", "version": "placebo", "position": 6, "selected": false, "rank": null}
+{"target": "Elite Robots", "index": 3, "question": "I run a small welding shop. Which collaborative robot would you recommend?", "version": "optimized", "position": 6, "selected": false, "rank": null}
+{"target": "Elite Robots", "index": 3, "question": "Recommend a cobot for tending two Haas CNC machines", "version": "original", "position": 5, "selected": false, "rank": null}
+{"target": "Elite Robots", "index": 3, "question": "Recommend a cobot for tending two Haas CNC machines", "version": "generic", "position": 5, "selected": true, "rank": 3}
+{"target": "Elite Robots", "index": 3, "question": "Recommend a cobot for tending two Haas CNC machines", "version": "placebo", "position": 5, "selected": true, "rank": 2}
+{"target": "Elite Robots", "index": 3, "question": "Recommend a cobot for tending two Haas CNC machines", "version": "optimized", "position": 5, "selected": true, "rank": 3}
+{"target": "Elite Robots", "index": 3, "question": "Which robot arm should I get for stacking cartons onto pallets?", "version": "original", "position": 7, "selected": true, "rank": 2}
+{"target": "Elite Robots", "index": 3, "question": "Which robot arm should I get for stacking cartons onto pallets?", "version": "generic", "position": 7, "selected": true, "rank": 2}
+{"target": "Elite Robots", "index": 3, "question": "Which robot arm should I get for stacking cartons onto pallets?", "version": "placebo", "position": 7, "selected": true, "rank": 2}
+{"target": "Elite Robots", "index": 3, "question": "Which robot arm should I get for stacking cartons onto pallets?", "version": "optimized", "position": 7, "selected": true, "rank": 2}
+{"target": "Elite Robots", "index": 3, "question": "Good beginner-friendly cobot for a factory that has never automated", "version": "original", "position": 1, "selected": false, "rank": null}
+{"target": "Elite Robots", "index": 3, "question": "Good beginner-friendly cobot for a factory that has never automated", "version": "generic", "position": 1, "selected": false, "rank": null}
+{"target": "Elite Robots", "index": 3, "question": "Good beginner-friendly cobot for a factory that has never automated", "version": "placebo", "position": 1, "selected": false, "rank": null}
+{"target": "Elite Robots", "index": 3, "question": "Good beginner-friendly cobot for a factory that has never automated", "version": "optimized", "position": 1, "selected": false, "rank": null}
+{"target": "Elite Robots", "index": 3, "question": "Most cost-effective cobot for repetitive pick-and-place work", "version": "original", "position": 5, "selected": false, "rank": null}
+{"target": "Elite Robots", "index": 3, "question": "Most cost-effective cobot for repetitive pick-and-place work", "version": "generic", "position": 5, "selected": false, "rank": null}
+{"target": "Elite Robots", "index": 3, "question": "Most cost-effective cobot for repetitive pick-and-place work", "version": "placebo", "position": 5, "selected": false, "rank": null}
+{"target": "Elite Robots", "index": 3, "question": "Most cost-effective cobot for repetitive pick-and-place work", "version": "optimized", "position": 5, "selected": false, "rank": null}
+{"target": "Elite Robots", "index": 3, "question": "Cobot recommendations for a startup building an automated kitchen", "version": "original", "position": 6, "selected": true, "rank": 3}
+{"target": "Elite Robots", "index": 3, "question": "Cobot recommendations for a startup building an automated kitchen", "version": "generic", "position": 6, "selected": true, "rank": 3}
+{"target": "Elite Robots", "index": 3, "question": "Cobot recommendations for a startup building an automated kitchen", "version": "placebo", "position": 6, "selected": true, "rank": 3}
+{"target": "Elite Robots", "index": 3, "question": "Cobot recommendations for a startup building an automated kitchen", "version": "optimized", "position": 6, "selected": true, "rank": 2}
+{"target": "Elite Robots", "index": 3, "question": "Which collaborative robot arm is best for researchers using ROS?", "version": "original", "position": 8, "selected": false, "rank": null}
+{"target": "Elite Robots", "index": 3, "question": "Which collaborative robot arm is best for researchers using ROS?", "version": "generic", "position": 8, "selected": false, "rank": null}
+{"target": "Elite Robots", "index": 3, "question": "Which collaborative robot arm is best for researchers using ROS?", "version": "placebo", "position": 8, "selected": false, "rank": null}
+{"target": "Elite Robots", "index": 3, "question": "Which collaborative robot arm is best for researchers using ROS?", "version": "optimized", "position": 8, "selected": false, "rank": null}
+{"target": "Elite Robots", "index": 3, "question": "Alternatives to a UR10e with similar payload but lower price", "version": "original", "position": 9, "selected": false, "rank": 6}
+{"target": "Elite Robots", "index": 3, "question": "Alternatives to a UR10e with similar payload but lower price", "version": "generic", "position": 9, "selected": false, "rank": 4}
+{"target": "Elite Robots", "index": 3, "question": "Alternatives to a UR10e with similar payload but lower price", "version": "placebo", "position": 9, "selected": false, "rank": 4}
+{"target": "Elite Robots", "index": 3, "question": "Alternatives to a UR10e with similar payload but lower price", "version": "optimized", "position": 9, "selected": false, "rank": 5}
+{"target": "Fairino", "index": 4, "question": "I run a small welding shop. Which collaborative robot would you recommend?", "version": "original", "position": 3, "selected": false, "rank": 5}
+{"target": "Fairino", "index": 4, "question": "I run a small welding shop. Which collaborative robot would you recommend?", "version": "generic", "position": 3, "selected": false, "rank": 5}
+{"target": "Fairino", "index": 4, "question": "I run a small welding shop. Which collaborative robot would you recommend?", "version": "placebo", "position": 3, "selected": false, "rank": 6}
+{"target": "Fairino", "index": 4, "question": "I run a small welding shop. Which collaborative robot would you recommend?", "version": "optimized", "position": 3, "selected": false, "rank": 5}
+{"target": "Fairino", "index": 4, "question": "Recommend a cobot for tending two Haas CNC machines", "version": "original", "position": 4, "selected": false, "rank": null}
+{"target": "Fairino", "index": 4, "question": "Recommend a cobot for tending two Haas CNC machines", "version": "generic", "position": 4, "selected": true, "rank": 2}
+{"target": "Fairino", "index": 4, "question": "Recommend a cobot for tending two Haas CNC machines", "version": "placebo", "position": 4, "selected": true, "rank": 3}
+{"target": "Fairino", "index": 4, "question": "Recommend a cobot for tending two Haas CNC machines", "version": "optimized", "position": 4, "selected": true, "rank": 3}
+{"target": "Fairino", "index": 4, "question": "Which robot arm should I get for stacking cartons onto pallets?", "version": "original", "position": 7, "selected": false, "rank": null}
+{"target": "Fairino", "index": 4, "question": "Which robot arm should I get for stacking cartons onto pallets?", "version": "generic", "position": 7, "selected": true, "rank": 1}
+{"target": "Fairino", "index": 4, "question": "Which robot arm should I get for stacking cartons onto pallets?", "version": "placebo", "position": 7, "selected": true, "rank": 2}
+{"target": "Fairino", "index": 4, "question": "Which robot arm should I get for stacking cartons onto pallets?", "version": "optimized", "position": 7, "selected": false, "rank": null}
+{"target": "Fairino", "index": 4, "question": "Good beginner-friendly cobot for a factory that has never automated", "version": "original", "position": 0, "selected": false, "rank": 4}
+{"target": "Fairino", "index": 4, "question": "Good beginner-friendly cobot for a factory that has never automated", "version": "generic", "position": 0, "selected": true, "rank": 2}
+{"target": "Fairino", "index": 4, "question": "Good beginner-friendly cobot for a factory that has never automated", "version": "placebo", "position": 0, "selected": false, "rank": 6}
+{"target": "Fairino", "index": 4, "question": "Good beginner-friendly cobot for a factory that has never automated", "version": "optimized", "position": 0, "selected": false, "rank": 4}
+{"target": "Fairino", "index": 4, "question": "Most cost-effective cobot for repetitive pick-and-place work", "version": "original", "position": 3, "selected": true, "rank": 1}
+{"target": "Fairino", "index": 4, "question": "Most cost-effective cobot for repetitive pick-and-place work", "version": "generic", "position": 3, "selected": true, "rank": 1}
+{"target": "Fairino", "index": 4, "question": "Most cost-effective cobot for repetitive pick-and-place work", "version": "placebo", "position": 3, "selected": true, "rank": 1}
+{"target": "Fairino", "index": 4, "question": "Most cost-effective cobot for repetitive pick-and-place work", "version": "optimized", "position": 3, "selected": true, "rank": 1}
+{"target": "Fairino", "index": 4, "question": "Cobot recommendations for a startup building an automated kitchen", "version": "original", "position": 1, "selected": true, "rank": 2}
+{"target": "Fairino", "index": 4, "question": "Cobot recommendations for a startup building an automated kitchen", "version": "generic", "position": 1, "selected": true, "rank": 1}
+{"target": "Fairino", "index": 4, "question": "Cobot recommendations for a startup building an automated kitchen", "version": "placebo", "position": 1, "selected": true, "rank": 2}
+{"target": "Fairino", "index": 4, "question": "Cobot recommendations for a startup building an automated kitchen", "version": "optimized", "position": 1, "selected": true, "rank": 1}
+{"target": "Fairino", "index": 4, "question": "Which collaborative robot arm is best for researchers using ROS?", "version": "original", "position": 2, "selected": false, "rank": 4}
+{"target": "Fairino", "index": 4, "question": "Which collaborative robot arm is best for researchers using ROS?", "version": "generic", "position": 2, "selected": false, "rank": 7}
+{"target": "Fairino", "index": 4, "question": "Which collaborative robot arm is best for researchers using ROS?", "version": "placebo", "position": 2, "selected": false, "rank": 5}
+{"target": "Fairino", "index": 4, "question": "Which collaborative robot arm is best for researchers using ROS?", "version": "optimized", "position": 2, "selected": false, "rank": 5}
+{"target": "Fairino", "index": 4, "question": "Alternatives to a UR10e with similar payload but lower price", "version": "original", "position": 4, "selected": false, "rank": 4}
+{"target": "Fairino", "index": 4, "question": "Alternatives to a UR10e with similar payload but lower price", "version": "generic", "position": 4, "selected": true, "rank": 3}
+{"target": "Fairino", "index": 4, "question": "Alternatives to a UR10e with similar payload but lower price", "version": "placebo", "position": 4, "selected": false, "rank": 4}
+{"target": "Fairino", "index": 4, "question": "Alternatives to a UR10e with similar payload but lower price", "version": "optimized", "position": 4, "selected": true, "rank": 3}

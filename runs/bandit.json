@@ -1,0 +1,118 @@
+{
+ "(False, False, True)|price_signal": [
+  3,
+  3
+ ],
+ "(False, False, True)|customer_evidence": [
+  1,
+  3
+ ],
+ "(False, False, True)|specificity": [
+  1,
+  3
+ ],
+ "(False, False, True)|use_case_sections": [
+  1,
+  2
+ ],
+ "(False, False, True)|buyer_faq": [
+  1,
+  2
+ ],
+ "(False, True, False)|buyer_faq": [
+  1,
+  2
+ ],
+ "(False, True, False)|use_case_sections": [
+  2,
+  2
+ ],
+ "(False, True, False)|specs_table": [
+  1,
+  2
+ ],
+ "(False, True, False)|customer_evidence": [
+  1,
+  2
+ ],
+ "(False, True, False)|specificity": [
+  1,
+  2
+ ],
+ "(False, False, False)|answer_first": [
+  1,
+  5
+ ],
+ "(False, False, False)|specificity": [
+  1,
+  6
+ ],
+ "(False, False, False)|customer_evidence": [
+  1,
+  4
+ ],
+ "(False, False, False)|use_case_sections": [
+  1,
+  6
+ ],
+ "(False, False, True)|specs_table": [
+  1,
+  2
+ ],
+ "(False, False, True)|answer_first": [
+  1,
+  2
+ ],
+ "(False, True, True)|answer_first": [
+  2,
+  2
+ ],
+ "(False, True, True)|specificity": [
+  1,
+  2
+ ],
+ "(False, True, True)|buyer_faq": [
+  2,
+  2
+ ],
+ "(False, True, True)|use_case_sections": [
+  1,
+  2
+ ],
+ "(False, False, False)|price_signal": [
+  1,
+  5
+ ],
+ "(False, False, False)|specs_table": [
+  3,
+  6
+ ],
+ "(False, False, False)|buyer_faq": [
+  1,
+  7
+ ],
+ "(True, False, False)|specificity": [
+  1,
+  3
+ ],
+ "(True, False, False)|price_signal": [
+  1,
+  2
+ ],
+ "(True, False, False)|use_case_sections": [
+  1,
+  2
+ ],
+ "(True, False, False)|customer_evidence": [
+  1,
+  2
+ ],
+ "(True, False, False)|specs_table": [
+  1,
+  2
+ ],
+ "(True, False, False)|answer_first": [
+  1,
+  2
+ ]
+}
