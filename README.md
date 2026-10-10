@@ -29,7 +29,7 @@ AgentRank learns from what the engines **already recommend** instead:
 **Why it failed:** the same unchanged page, asked twice, scored 50% vs. 38% and 25% vs. 38%. Simulated gains from 16 runs per edit sat inside that noise, so the optimizer kept edits that got lucky. **Next:** many more simulator runs per edit, more questions, and more trials in the final test.
 
 ## Keeping it honest
-- Hypothesis, metric and analysis committed before the test: `583b63e`. Targets locked: `1cd568d`. Amendments, each committed before the data they apply to was seen: `5aededd`, `4002ebd`.
+- Hypothesis, metric and analysis committed before the test: `f7a0b9f`. Targets locked: `eee5a57`. Amendments, each committed before the data they apply to was seen: `0e88e8e`, `e70b303`.
 - 15 held-out questions were never used for learning.
 - The same content is served to humans and bots. No hidden text, no prompt injection.
 - The checker was tuned twice on training data, and both earlier versions are documented in the git log. v1 truncated verdicts; v2 rejected harmless restructuring.
@@ -57,3 +57,5 @@ video/       narration script and the render pipeline (frames + ElevenLabs/say +
 
 ## Note on data
 The companies' web pages, and the rewritten versions of them, are not published here. The repo and the site show numbers only. Company names are used solely to report measurements.
+
+> **About the commit hashes:** before publishing, the history was rewritten to remove third-party page text, which changed every hash. Commit timestamps and contents are unchanged. Earlier drafts cited the old hashes: 583b63e→f7a0b9f, 1cd568d→eee5a57, 5aededd→0e88e8e, 4002ebd→e70b303.

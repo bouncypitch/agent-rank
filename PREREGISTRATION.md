@@ -37,7 +37,7 @@ Real Claude Opus web-search calls cost ~$0.16 each, which makes the original des
 
 - **Engine:** Claude Opus 5.5 only (`claude-opus-5-5`), web search **off**. It is given the held-out question plus a pool of real competitor pages and one version of the target page, and answers from them plus its own knowledge (system prompt = simulator v2 prompt). This tests the same "choose among sources" stage with the real production model; it does not test live retrieval.
 - **Pools:** for each held-out question, the pages Perplexity actually retrieved when asked that question (1 Perplexity call per question; its answers are not used for learning). The target's own domain is removed from the pool; 9 competitor pages + the target version.
-- **Targets:** the first 10 of `data/targets.json` (order locked in commit 1cd568d).
+- **Targets:** the first 10 of `data/targets.json` (order locked in commit eee5a57).
 - **Questions / trials:** the first 8 held-out questions, one trial each → 8 trials per target per version, 320 trials total.
 - **Pairing / position:** for a given (target, question) the target occupies the same randomly drawn position for all four versions; positions vary across questions.
 - **Baselines:** generic = "Improve this web page."; placebo = sentence-by-sentence rephrase keeping facts, order and structure, length-matched to the optimized version. Both use the same editor model, honesty rules and claim checker as the optimizer.
