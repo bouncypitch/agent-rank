@@ -4,3 +4,13 @@ runs/*.sqlite
 __pycache__/
 video/build/
 video/frames/_tmp.html
+# Third-party page text (company homepages and rewritten versions) stays local — see README "Note on data"
+runs/optimized/
+runs/old_checker_v1/
+runs/old_checker_v2/
+runs/final_versions.json
+runs/demo.html
+runs/claude_raw_debug.*
+runs/*.log
+video/frames/_pdf.html
+docs/AgentRank_demo.mp4.bak

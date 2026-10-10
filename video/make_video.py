@@ -34,8 +34,11 @@ def tts_eleven(text: str, out: Path) -> Path:
         r = requests.post(f"https://api.elevenlabs.io/v1/text-to-speech/{ELEVEN_VOICE}?output_format=mp3_44100_128",
                           headers={"xi-api-key": os.environ["ELEVENLABS_API_KEY"]}, timeout=120,
                           json={"text": text, "model_id": ELEVEN_MODEL,
-                                "voice_settings": {"stability": 0.45, "similarity_boost": 0.8, "style": 0.15}})
-        r.raise_for_status()
+                                # v2 takes fine-grained settings; for v4 we let the model's defaults drive delivery
+                                **({} if ELEVEN_MODEL.startswith("eleven_v4") else
+                                   {"voice_settings": {"stability": 0.45, "similarity_boost": 0.8, "style": 0.15}})})
+        if not r.ok:
+            raise RuntimeError(f"ElevenLabs {r.status_code}: {r.text[:300]}")
         mp3.write_bytes(r.content)
     return mp3
 

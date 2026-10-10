@@ -1,0 +1,34 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;600&display=swap">
+<style>
+body{margin:0;width:1200px;height:630px;background:#121A2B;color:#F6F4EE;font-family:'IBM Plex Sans',Arial,sans-serif;overflow:hidden}
+.wrap{padding:52px 60px;height:630px;box-sizing:border-box;display:flex;flex-direction:column;gap:22px}
+.eyebrow{color:#E2703A;font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:17px}
+h1{font-family:'Space Grotesk',Arial,sans-serif;font-size:64px;line-height:1;margin:0}
+.tag{font-family:'Space Grotesk',Arial,sans-serif;font-size:30px;line-height:1.2;margin:0;color:#F6F4EE;max-width:1000px}
+.steps{display:flex;gap:10px;align-items:center;margin-top:6px}
+.step{background:#1E2940;border:1px solid #33415E;border-radius:12px;padding:10px 14px;font-size:17px;color:#D8DEEA}
+.step b{color:#E2703A;display:block;font-size:13px;letter-spacing:1px}
+.arrow{color:#E2703A;font-size:22px}
+.stats{display:flex;gap:14px;margin-top:auto}
+.stat{flex:1;background:#F6F4EE;color:#121A2B;border-radius:14px;padding:14px 18px}
+.stat .n{font-family:'Space Grotesk',Arial,sans-serif;font-size:34px;font-weight:700}
+.stat .l{font-size:15px;color:#4A5568;line-height:1.3}
+.stat.fail .n{color:#B4521F}
+</style></head><body><div class="wrap">
+<div class="eyebrow">AGI House · The Living Internet · Oct 10, 2026</div>
+<h1>AgentRank</h1>
+<p class="tag">Get recommended by the AI agents deciding where buyers go — no traffic required.</p>
+<div class="steps">
+ <div class="step"><b>1 PROBE</b>Claude · OpenAI · Perplexity</div><span class="arrow">→</span>
+ <div class="step"><b>2 SIMULATE</b>cheap model, validated</div><span class="arrow">→</span>
+ <div class="step"><b>3 EDIT</b>bandit over 7 edits</div><span class="arrow">→</span>
+ <div class="step"><b>4 CHECK</b>no invented claims</div><span class="arrow">→</span>
+ <div class="step"><b>5 PROVE</b>pre-registered test</div>
+</div>
+<div class="stats">
+ <div class="stat"><div class="n">ρ 0.76–0.91</div><div class="l">simulator matches each engine's brand rankings</div></div>
+ <div class="stat"><div class="n">40 + 15</div><div class="l">cobot buyer questions: training + held-out</div></div>
+ <div class="stat fail"><div class="n">FAIL, honestly</div><div class="l">32.5% vs 27.5% original, n.s. — engine noise ±12 pts; fix identified</div></div>
+</div>
+</div></body></html>

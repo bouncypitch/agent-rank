@@ -31,7 +31,7 @@
     },
     {
       "image": "demo_card.png",
-      "text": "This is the product. For each company: how often each engine recommends it today, the optimization rounds, and its own page before and after, with every change checked against the original."
+      "text": "This is the product. For each company: how often each engine recommends it today, the optimization rounds and which edits it tried, and how the real engine responded on held-out questions."
     },
     {
       "image": "optimizer.png",

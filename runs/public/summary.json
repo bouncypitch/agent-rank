@@ -1,0 +1,561 @@
+{
+ "generated": "2026-10-10",
+ "engines": {
+  "claude": {
+   "answers": 80,
+   "pages_read_avg": 19.3,
+   "top3_share": {
+    "Universal Robots": 0.887,
+    "FANUC CRX": 0.613,
+    "Standard Bots": 0.25,
+    "ABB": 0.2,
+    "Doosan Robotics": 0.163,
+    "Techman Robot": 0.15,
+    "Franka Robotics": 0.113,
+    "Productive Robotics": 0.062,
+    "UFactory": 0.062,
+    "Lincoln Electric Cooper": 0.05,
+    "Fairino": 0.05,
+    "Hirebotics": 0.037,
+    "Kinova": 0.037,
+    "KUKA": 0.037,
+    "Dobot": 0.037,
+    "Miller Copilot": 0.025,
+    "Formic": 0.025,
+    "AUBO": 0.025,
+    "Vectis Automation": 0.013,
+    "Han's Robot": 0.013,
+    "Yaskawa": 0.013,
+    "Denso": 0.013
+   }
+  },
+  "openai": {
+   "answers": 88,
+   "pages_read_avg": 61.2,
+   "top3_share": {
+    "Universal Robots": 0.886,
+    "FANUC CRX": 0.591,
+    "Doosan Robotics": 0.25,
+    "ABB": 0.205,
+    "Hirebotics": 0.08,
+    "Fairino": 0.08,
+    "Dobot": 0.068,
+    "Techman Robot": 0.068,
+    "UFactory": 0.057,
+    "Standard Bots": 0.045,
+    "Franka Robotics": 0.045,
+    "Vectis Automation": 0.034,
+    "KUKA": 0.034,
+    "Miller Copilot": 0.023,
+    "Elite Robots": 0.023,
+    "Yaskawa": 0.023,
+    "Kinova": 0.023,
+    "Productive Robotics": 0.023,
+    "Lincoln Electric Cooper": 0.011,
+    "AUBO": 0.011,
+    "Formic": 0.011,
+    "THG Automation": 0.011
+   }
+  },
+  "perplexity": {
+   "answers": 120,
+   "pages_read_avg": 19.6,
+   "top3_share": {
+    "Universal Robots": 0.833,
+    "FANUC CRX": 0.45,
+    "ABB": 0.117,
+    "Doosan Robotics": 0.1,
+    "Standard Bots": 0.092,
+    "Techman Robot": 0.092,
+    "Fairino": 0.075,
+    "Dobot": 0.067,
+    "Yaskawa": 0.058,
+    "Franka Robotics": 0.05,
+    "Productive Robotics": 0.025,
+    "Denso": 0.025,
+    "UFactory": 0.017,
+    "Lincoln Electric Cooper": 0.008,
+    "Vectis Automation": 0.008,
+    "Elite Robots": 0.008,
+    "Hirebotics": 0.008,
+    "Formic": 0.008
+   }
+  }
+ },
+ "validation": {
+  "perplexity": {
+   "pair_r": 0.25,
+   "brand_spearman": 0.81,
+   "brand_r_without_ur_fanuc": 0.75,
+   "top1_hit": 0.95
+  },
+  "openai": {
+   "pair_r": 0.42,
+   "brand_spearman": 0.91,
+   "brand_r_without_ur_fanuc": 0.91,
+   "top1_hit": 0.94
+  },
+  "claude": {
+   "pair_r": 0.09,
+   "brand_spearman": 0.76,
+   "brand_r_without_ur_fanuc": 0.88,
+   "top1_hit": 0.78
+  },
+  "perplexity_self_consistency_pair_r": 0.21,
+  "simulator_v1_pair_r_perplexity": -0.05
+ },
+ "companies": [
+  {
+   "name": "Standard Bots",
+   "url": "https://standardbots.com/",
+   "index": 0,
+   "sim_before": 0.1875,
+   "sim_after": 0.375,
+   "page_changed": true,
+   "rounds": [
+    {
+     "round": 1,
+     "best": 0.3125,
+     "ops": [
+      "price_signal",
+      "customer_evidence"
+     ]
+    },
+    {
+     "round": 2,
+     "best": 0.3125,
+     "ops": [
+      "specificity",
+      "use_case_sections"
+     ]
+    },
+    {
+     "round": 3,
+     "best": 0.375,
+     "ops": [
+      "price_signal",
+      "buyer_faq"
+     ]
+    }
+   ],
+   "today_top3": {
+    "claude": 0.25,
+    "openai": 0.045,
+    "perplexity": 0.092
+   },
+   "final": {
+    "original": 0.25,
+    "generic": 0.25,
+    "placebo": 0.25,
+    "optimized": 0.25
+   }
+  },
+  {
+   "name": "Kassow Robots",
+   "url": "https://www.kassowrobots.com/",
+   "index": 1,
+   "sim_before": 0.0625,
+   "sim_after": 0.125,
+   "page_changed": true,
+   "rounds": [
+    {
+     "round": 1,
+     "best": 0.125,
+     "ops": [
+      "buyer_faq",
+      "use_case_sections"
+     ]
+    },
+    {
+     "round": 2,
+     "best": 0.125,
+     "ops": [
+      "use_case_sections",
+      "specs_table"
+     ]
+    },
+    {
+     "round": 3,
+     "best": 0.125,
+     "ops": [
+      "customer_evidence",
+      "specificity"
+     ]
+    }
+   ],
+   "today_top3": {
+    "claude": 0.0,
+    "openai": 0.0,
+    "perplexity": 0.0
+   },
+   "final": {
+    "original": 0.125,
+    "generic": 0.125,
+    "placebo": 0.125,
+    "optimized": 0.125
+   }
+  },
+  {
+   "name": "Franka Robotics",
+   "url": "https://franka.de/",
+   "index": 2,
+   "sim_before": 0.0625,
+   "sim_after": 0.0625,
+   "page_changed": false,
+   "rounds": [
+    {
+     "round": 1,
+     "best": 0.0625,
+     "ops": [
+      "answer_first",
+      "specificity"
+     ]
+    },
+    {
+     "round": 2,
+     "best": 0.0625,
+     "ops": [
+      "answer_first",
+      "customer_evidence"
+     ]
+    },
+    {
+     "round": 3,
+     "best": 0.0625,
+     "ops": [
+      "use_case_sections",
+      "customer_evidence"
+     ]
+    }
+   ],
+   "today_top3": {
+    "claude": 0.113,
+    "openai": 0.045,
+    "perplexity": 0.05
+   },
+   "final": {
+    "original": 0.5,
+    "generic": 0.25,
+    "placebo": 0.25,
+    "optimized": 0.375
+   }
+  },
+  {
+   "name": "Elite Robots",
+   "url": "https://www.eliterobots.com/",
+   "index": 3,
+   "sim_before": 0.25,
+   "sim_after": 0.25,
+   "page_changed": false,
+   "rounds": [
+    {
+     "round": 1,
+     "best": 0.25,
+     "ops": [
+      "specs_table",
+      "price_signal"
+     ]
+    },
+    {
+     "round": 2,
+     "best": 0.25,
+     "ops": [
+      "answer_first",
+      "specificity"
+     ]
+    },
+    {
+     "round": 3,
+     "best": 0.25,
+     "ops": [
+      "customer_evidence",
+      "price_signal"
+     ]
+    }
+   ],
+   "today_top3": {
+    "claude": 0.0,
+    "openai": 0.023,
+    "perplexity": 0.008
+   },
+   "final": {
+    "original": 0.25,
+    "generic": 0.375,
+    "placebo": 0.375,
+    "optimized": 0.375
+   }
+  },
+  {
+   "name": "Fairino",
+   "url": "https://www.fairino-robot.com/",
+   "index": 4,
+   "sim_before": 0.4375,
+   "sim_after": 0.625,
+   "page_changed": true,
+   "rounds": [
+    {
+     "round": 1,
+     "best": 0.5,
+     "ops": [
+      "answer_first",
+      "specificity"
+     ]
+    },
+    {
+     "round": 2,
+     "best": 0.625,
+     "ops": [
+      "answer_first",
+      "buyer_faq"
+     ]
+    },
+    {
+     "round": 3,
+     "best": 0.625,
+     "ops": [
+      "use_case_sections",
+      "buyer_faq"
+     ]
+    }
+   ],
+   "today_top3": {
+    "claude": 0.05,
+    "openai": 0.08,
+    "perplexity": 0.075
+   },
+   "final": {
+    "original": 0.25,
+    "generic": 0.75,
+    "placebo": 0.5,
+    "optimized": 0.5
+   }
+  },
+  {
+   "name": "Productive Robotics",
+   "url": "https://www.productiverobotics.com/",
+   "index": 5,
+   "sim_before": 0.375,
+   "sim_after": 0.375,
+   "page_changed": false,
+   "rounds": [
+    {
+     "round": 1,
+     "best": 0.375,
+     "ops": [
+      "price_signal",
+      "specs_table"
+     ]
+    },
+    {
+     "round": 2,
+     "best": 0.375,
+     "ops": [
+      "specificity",
+      "buyer_faq"
+     ]
+    },
+    {
+     "round": 3,
+     "best": 0.375,
+     "ops": [
+      "use_case_sections",
+      "specificity"
+     ]
+    }
+   ],
+   "today_top3": {
+    "claude": 0.062,
+    "openai": 0.023,
+    "perplexity": 0.025
+   },
+   "final": null
+  },
+  {
+   "name": "Neura Robotics",
+   "url": "https://neura-robotics.com/",
+   "index": 6,
+   "sim_before": 0.0,
+   "sim_after": 0.0,
+   "page_changed": false,
+   "rounds": [
+    {
+     "round": 1,
+     "best": 0.0,
+     "ops": [
+      "specs_table",
+      "answer_first"
+     ]
+    },
+    {
+     "round": 2,
+     "best": 0.0,
+     "ops": [
+      "customer_evidence",
+      "price_signal"
+     ]
+    },
+    {
+     "round": 3,
+     "best": 0.0,
+     "ops": [
+      "use_case_sections",
+      "buyer_faq"
+     ]
+    }
+   ],
+   "today_top3": {
+    "claude": 0.0,
+    "openai": 0.0,
+    "perplexity": 0.0
+   },
+   "final": null
+  },
+  {
+   "name": "Flexiv",
+   "url": "https://www.flexiv.com/",
+   "index": 7,
+   "sim_before": 0.125,
+   "sim_after": 0.125,
+   "page_changed": false,
+   "rounds": [
+    {
+     "round": 1,
+     "best": 0.125,
+     "ops": [
+      "buyer_faq",
+      "use_case_sections"
+     ]
+    },
+    {
+     "round": 2,
+     "best": 0.125,
+     "ops": [
+      "specs_table",
+      "price_signal"
+     ]
+    },
+    {
+     "round": 3,
+     "best": 0.125,
+     "ops": [
+      "price_signal",
+      "buyer_faq"
+     ]
+    }
+   ],
+   "today_top3": {
+    "claude": 0.0,
+    "openai": 0.0,
+    "perplexity": 0.0
+   },
+   "final": null
+  },
+  {
+   "name": "Agile Robots",
+   "url": "https://www.agile-robots.com/",
+   "index": 8,
+   "sim_before": 0.0,
+   "sim_after": 0.0,
+   "page_changed": false,
+   "rounds": [
+    {
+     "round": 1,
+     "best": 0.0,
+     "ops": [
+      "answer_first",
+      "buyer_faq"
+     ]
+    },
+    {
+     "round": 2,
+     "best": 0.0,
+     "ops": [
+      "use_case_sections",
+      "specs_table"
+     ]
+    },
+    {
+     "round": 3,
+     "best": 0.0,
+     "ops": [
+      "specs_table",
+      "specificity"
+     ]
+    }
+   ],
+   "today_top3": {
+    "claude": 0.0,
+    "openai": 0.0,
+    "perplexity": 0.0
+   },
+   "final": null
+  },
+  {
+   "name": "Rokae",
+   "url": "https://www.rokae.com/en/",
+   "index": 9,
+   "sim_before": 0.0,
+   "sim_after": 0.0625,
+   "page_changed": true,
+   "rounds": [
+    {
+     "round": 1,
+     "best": 0.0625,
+     "ops": [
+      "specs_table",
+      "specificity"
+     ]
+    },
+    {
+     "round": 2,
+     "best": 0.0625,
+     "ops": [
+      "customer_evidence",
+      "specs_table"
+     ]
+    },
+    {
+     "round": 3,
+     "best": 0.0625,
+     "ops": [
+      "specificity",
+      "answer_first"
+     ]
+    }
+   ],
+   "today_top3": {
+    "claude": 0.0,
+    "openai": 0.0,
+    "perplexity": 0.0
+   },
+   "final": null
+  }
+ ],
+ "final_test": {
+  "engine": "claude-opus-5-5 (web search off, real competitor pages)",
+  "companies": 5,
+  "heldout_questions": 8,
+  "trials": 160,
+  "rates": {
+   "original": 0.275,
+   "generic": 0.35,
+   "placebo": 0.3,
+   "optimized": 0.325
+  },
+  "verdict": "FAIL",
+  "optimized_minus": {
+   "original": {
+    "diff": 0.05,
+    "p": 0.538
+   },
+   "placebo": {
+    "diff": 0.025,
+    "p": 0.635
+   },
+   "generic": {
+    "diff": -0.025,
+    "p": 0.868
+   }
+  }
+ }
+}
