@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AgentRank Live</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;600&display=swap">
+<style>
+:root{--ink:#121A2B;--paper:#F6F4EE;--card:#FFFDF8;--line:#DDD7CA;--accent:#E2703A;--accent-ink:#B4521F;--muted:#4A5568;--ok:#24572A;--okbg:#E6F0E4;--bad:#8A2A12;--badbg:#FBE3D6}
+*{box-sizing:border-box} body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 'IBM Plex Sans',-apple-system,Arial,sans-serif}
+header{background:var(--ink);color:var(--paper);padding:22px max(16px,4vw)} header h1{margin:0;font:700 30px 'Space Grotesk',Arial} header p{margin:4px 0 0;color:#B9C2D3}
+main{max-width:1180px;margin:0 auto;padding:20px 16px 60px;display:flex;flex-direction:column;gap:16px}
+form{display:grid;grid-template-columns:2fr 1fr auto;gap:10px} @media(max-width:720px){form{grid-template-columns:1fr}}
+input{font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
+button{font:inherit;font-weight:600;padding:12px 22px;border:0;border-radius:999px;background:var(--accent);color:var(--ink);cursor:pointer} button:disabled{opacity:.5;cursor:wait}
+input:focus-visible,button:focus-visible{outline:3px solid #3A6FC4;outline-offset:2px}
+.examples{font-size:15px;color:var(--muted)} .examples a{color:#3A6FC4;cursor:pointer}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px} .card h2{margin:0 0 8px;font:700 21px 'Space Grotesk',Arial}
+.note{background:#FFF1E6;border:1px solid #F1CDB5;border-radius:12px;padding:10px 14px;font-size:15px}
+.status{color:var(--muted);font-size:15px;min-height:22px}
+.rate{font:700 40px 'Space Grotesk',Arial} .ci{color:var(--muted);font-size:15px}
+.ci-bar{position:relative;height:14px;background:#ECE7DC;border-radius:7px;margin:8px 0} .ci-bar span{position:absolute;top:0;height:14px;border-radius:7px;background:#9C958A} .ci-bar i{position:absolute;top:-4px;width:3px;height:22px;background:var(--ink)}
+.rounds{display:flex;flex-direction:column;gap:8px} .r{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.tag{display:inline-block;border-radius:999px;padding:1px 10px;font-size:13px;font-weight:600;margin-left:6px} .kept{background:var(--okbg);color:var(--ok)} .nope{background:#ECE7DC;color:var(--muted)} .rej{background:var(--badbg);color:var(--bad)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px} @media(max-width:800px){.two{grid-template-columns:1fr}}
+pre{white-space:pre-wrap;background:#F2EFE7;border-radius:10px;padding:12px;font-size:13px;max-height:460px;overflow:auto;margin:0}
+table{border-collapse:collapse} td{padding:4px 14px 4px 0}
+.hidden{display:none}
+</style></head><body>
+<header><h1>AgentRank Live</h1><p>Paste a robotics company page. See how AI engines treat it, and watch an honest optimizer try to improve it.</p></header>
+<main>
+  <form id="f">
+    <input id="url" type="url" placeholder="https://www.example-robotics.com/" required aria-label="Company page URL">
+    <input id="name" type="text" placeholder="Company name (as buyers would say it)" required aria-label="Company name">
+    <button id="go">Analyze</button>
+  </form>
+  <div class="examples">Try: <a data-u="https://www.kassowrobots.com/" data-n="Kassow Robots">Kassow Robots</a> · <a data-u="https://www.productiverobotics.com/" data-n="Productive Robotics">Productive Robotics</a> · <a data-u="https://www.flexiv.com/" data-n="Flexiv">Flexiv</a></div>
+  <div class="note"><b>Simulated, not validated.</b> Rates come from a cheap model standing in for AI engines (it matches their overall brand rankings, ρ 0.76–0.91, but single answers are noisy). Edits are kept only if the gain clears the noise. Our pre-registered real-engine test of this approach did not pass — see the project site.</div>
+  <div class="status" id="status" aria-live="polite"></div>
+  <section class="card hidden" id="diag"><h2>1 · Today</h2><div id="probe"></div></section>
+  <section class="card hidden" id="base"><h2>2 · Simulated recommendation rate (your page among real competitors)</h2><div id="baseout"></div></section>
+  <section class="card hidden" id="opt"><h2>3 · Optimization rounds</h2><div class="rounds" id="rounds"></div></section>
+  <section class="card hidden" id="res"><h2>4 · Before / after</h2><p id="summary"></p><div class="two"><div><h3>Original (extracted text)</h3><pre id="orig"></pre></div><div><h3>Final version</h3><pre id="fin"></pre></div></div></section>
+</main>
+<script>
+const $ = id => document.getElementById(id), pct = x => (x * 100).toFixed(0) + '%';
+const OPS = {answer_first:'Answer first', specs_table:'Specs table', use_case_sections:'Use-case sections', customer_evidence:'Customer evidence', price_signal:'Price signal', specificity:'Specificity', buyer_faq:'Buyer FAQ'};
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let baseline = null;
+const ciBar = s => `<div class="ci-bar" aria-hidden="true"><span style="left:${s.lo*100}%;width:${(s.hi-s.lo)*100}%"></span><i style="left:calc(${s.rate*100}% - 1px)"></i></div>`;
+document.querySelectorAll('.examples a').forEach(a => a.onclick = () => { $('url').value = a.dataset.u; $('name').value = a.dataset.n; });
+$('f').onsubmit = async e => {
+  e.preventDefault();
+  ['diag','base','opt','res'].forEach(id => $(id).classList.add('hidden')); $('rounds').innerHTML = ''; $('go').disabled = true;
+  const r = await fetch('/api/run', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({url:$('url').value, name:$('name').value})});
+  const reader = r.body.getReader(), dec = new TextDecoder(); let buf = '';
+  while (true) {
+    const {value, done} = await reader.read(); if (done) break;
+    buf += dec.decode(value, {stream:true}); let i;
+    while ((i = buf.indexOf('\n')) >= 0) { handle(JSON.parse(buf.slice(0, i))); buf = buf.slice(i + 1); }
+  }
+  $('go').disabled = false;
+};
+function handle(m) {
+  if (m.event === 'status') $('status').textContent = m.msg;
+  if (m.event === 'error') { $('status').innerHTML = `<span style="color:var(--bad)">${esc(m.msg)}</span>`; }
+  if (m.event === 'probe') {
+    $('diag').classList.remove('hidden');
+    $('probe').innerHTML = `<p>In today's probe (40 cobot buyer questions), how often each real engine named <b>${esc($('name').value)}</b>:</p><table>` +
+      Object.entries(m).filter(([k]) => k !== 'event').map(([k, v]) => `<tr><td>${k}</td><td><b>${v.mentioned}</b> of ${v.answers} answers</td></tr>`).join('') + '</table>';
+  }
+  if (m.event === 'baseline') {
+    baseline = m; $('base').classList.remove('hidden');
+    $('baseout').innerHTML = `<div class="rate">${pct(m.rate)}</div><div class="ci">recommended in top 3 · ${m.k} of ${m.n} simulated answers · 95% CI ${pct(m.lo)}–${pct(m.hi)}</div>${ciBar(m)}`;
+    $('opt').classList.remove('hidden');
+  }
+  if (m.event === 'round') {
+    const d = document.createElement('div'); d.className = 'r';
+    if (m.rejected) d.innerHTML = `<b>Round ${m.round}: ${OPS[m.op]}</b><span class="tag rej">rejected by claim checker</span><div class="ci">${m.rejected.map(esc).join('<br>')}</div>`;
+    else d.innerHTML = `<b>Round ${m.round}: ${OPS[m.op]}</b> → ${pct(m.score.rate)} <span class="ci">(CI ${pct(m.score.lo)}–${pct(m.score.hi)})</span><span class="tag ${m.kept ? 'kept' : 'nope'}">${m.kept ? 'kept: gain beats noise' : 'not kept: within noise'}</span>${ciBar(m.score)}`;
+    $('rounds').appendChild(d);
+  }
+  if (m.event === 'done') {
+    $('status').textContent = `Done · this run cost $${m.cost} in API calls`;
+    $('res').classList.remove('hidden');
+    const changed = m.final !== m.original;
+    $('summary').innerHTML = changed ? `Simulated rate ${pct(baseline.rate)} → <b>${pct(m.final_score.rate)}</b>. Every statement in the final version passed the claim checker against the original.` : `No edit cleared the noise bar, so the page is unchanged — an honest outcome at this sample size.`;
+    $('orig').textContent = m.original.slice(0, 4000); $('fin').textContent = m.final.slice(0, 4000);
+  }
+}
+</script>
+</body></html>

@@ -45,6 +45,18 @@ cp .env.example .env   # add ANTHROPIC_API_KEY, OPENAI_API_KEY, PERPLEXITY_API_K
 ```
 Every paid call is cached in `runs/cache.sqlite`, and a hard spending cap (`SPEND_CAP_USD`) stops runs before they overspend. This run cost about $35.
 
+## Live demo app
+```bash
+.venv/bin/python -m agentrank.app    # then open http://127.0.0.1:5050
+```
+Paste a robotics company URL and its name. The app:
+- shows how often each real engine named the company in the probe,
+- simulates 32 buyer answers with its page among real competitor pages, with a 95% CI,
+- runs 3 bandit rounds, keeping an edit **only if its gain clears the noise** (≈1.64 SE), the fix the failed test pointed to,
+- shows the page before and after.
+
+Typical cost is about $0.15–0.60 per URL, and a per-run cap applies. Numbers are labeled *simulated, not validated*. Known issue: the claim checker sometimes flags a claim the edit *removed*, which is harmless but costs a round.
+
 ## Layout
 ```
 agentrank/   engines/ (claude, openai, perplexity) · probe · simulator · validate · optimizer (bandit + checker)

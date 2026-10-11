@@ -14,3 +14,4 @@ runs/claude_raw_debug.*
 runs/*.log
 video/frames/_pdf.html
 docs/AgentRank_demo.mp4.bak
+runs/bandit_app.json
