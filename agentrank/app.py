@@ -96,6 +96,7 @@ def run(url: str, name: str, emit):
     emit("status", {"msg": f"Simulating {len(contexts) * SAMPLES} buyer answers with your page among real competitor pages …"})
     best, best_s = original, score(original, target, contexts)
     emit("baseline", best_s)
+    attempt = None  # best-scoring edit that passed the checker, kept or not (shown for comparison)
 
     # Start from what the bandit learned on the 10 locked companies, but keep the app's updates separate.
     bandit = optimizer.Bandit()
@@ -117,13 +118,15 @@ def run(url: str, name: str, emit):
                 continue
             s = score(cand, target, contexts)
             keep = significant_gain(s, best_s)
+            if attempt is None or s["rate"] > attempt["score"]["rate"]:
+                attempt = {"page": cand, "score": s, "op": op, "kept": keep}
             bandit.update(ctx, op, success=keep)
             emit("round", {"round": rnd, "op": op, "score": s, "kept": keep})
             if keep:
                 best, best_s = cand, s
     finally:
         optimizer.BANDIT_PATH = saved_path
-    emit("done", {"original": original, "final": best, "final_score": best_s,
+    emit("done", {"original": original, "final": best, "final_score": best_s, "attempt": attempt,
                   "cost": round(store.spent() - start_spend, 2), "spent_total": round(store.spent(), 2)})
 
 

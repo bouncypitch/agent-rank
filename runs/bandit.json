@@ -25,7 +25,7 @@
  ],
  "(False, True, False)|use_case_sections": [
   2,
-  2
+  3
  ],
  "(False, True, False)|specs_table": [
   1,
@@ -37,7 +37,7 @@
  ],
  "(False, True, False)|specificity": [
   1,
-  2
+  3
  ],
  "(False, False, False)|answer_first": [
   1,
@@ -49,7 +49,7 @@
  ],
  "(False, False, False)|customer_evidence": [
   1,
-  4
+  5
  ],
  "(False, False, False)|use_case_sections": [
   1,
@@ -65,11 +65,11 @@
  ],
  "(False, True, True)|answer_first": [
   2,
-  2
+  3
  ],
  "(False, True, True)|specificity": [
   1,
-  2
+  3
  ],
  "(False, True, True)|buyer_faq": [
   2,
@@ -85,7 +85,7 @@
  ],
  "(False, False, False)|specs_table": [
   3,
-  6
+  8
  ],
  "(False, False, False)|buyer_faq": [
   1,
@@ -112,6 +112,14 @@
   2
  ],
  "(True, False, False)|answer_first": [
+  1,
+  2
+ ],
+ "(False, True, False)|price_signal": [
+  1,
+  2
+ ],
+ "(False, True, True)|customer_evidence": [
   1,
   2
  ]

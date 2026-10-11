@@ -38,6 +38,10 @@ body.searched main{display:flex}
 details{margin-top:6px} summary{cursor:pointer;color:var(--muted);font-size:15px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px} @media(max-width:760px){.two{grid-template-columns:1fr}}
 pre{white-space:pre-wrap;background:var(--soft);border-radius:10px;padding:12px;font-size:13px;max-height:420px;overflow:auto;margin:0}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px} @media(max-width:760px){.cmp{grid-template-columns:1fr}}
+.cmp h3{margin:0 0 6px;font:600 15px 'IBM Plex Sans',Arial;color:var(--muted)}
+.pane{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13.5px;line-height:1.45;max-height:560px;overflow:auto;white-space:pre-wrap}
+.pane div{padding:1px 4px;border-radius:4px;min-height:1.2em} .del{background:#FBE6DB} .add{background:#E2F0DE}
 .fine{font-size:13px;color:var(--muted);text-align:center;margin-top:8px}
 .hidden{display:none}
 </style></head><body>
@@ -58,11 +62,13 @@ pre{white-space:pre-wrap;background:var(--soft);border-radius:10px;padding:12px;
   <section class="block hidden" id="base"><h2>Simulated recommendation rate</h2><div id="baseout"></div></section>
   <section class="block hidden" id="opt"><h2>Optimization</h2><div id="rounds"></div></section>
   <section class="block hidden" id="res"><h2>Result</h2><p id="summary"></p>
-    <details><summary>Show the page before and after</summary><div class="two"><pre id="orig"></pre><pre id="fin"></pre></div></details></section>
+    <div class="cmp"><div><h3>Current page</h3><div class="pane" id="orig"></div></div><div><h3 id="finlabel">Optimized page</h3><div class="pane" id="fin"></div></div></div>
+    <p class="ci">Highlighted: <span class="del">removed or changed</span> on the left, <span class="add">added or changed</span> on the right. Extracted page text, not the visual design.</p></section>
   <p class="fine">Simulated, not validated: a cheap model stands in for AI engines (it matches their overall brand rankings, ρ 0.76–0.91). Edits are kept only when the gain clears the noise. Our pre-registered real-engine test did not pass — <a href="https://bouncypitch.github.io/agent-rank/">details</a>.</p>
 </main>
 <script>
 const EXAMPLES = [
+  ['Fairino', 'https://www.fairino-robot.com/'], ['Standard Bots', 'https://standardbots.com/'],
   ['Doosan Robotics', 'https://www.doosanrobotics.com/en/'], ['Techman Robot', 'https://www.tm-robot.com/en/'],
   ['Hirebotics', 'https://hirebotics.com/'], ['Dobot', 'https://www.dobot-robots.com/'], ['Vectis Automation', 'https://vectisautomation.com/'],
   ['AUBO', 'https://www.aubo-cobot.com/'], ["Han's Robot", 'https://www.hansrobot.net/'], ['Path Robotics', 'https://www.path-robotics.com/'],
@@ -121,11 +127,35 @@ function handle(m) {
   if (m.event === 'done') {
     $('status').textContent = `Done · $${m.cost} in API calls`;
     $('res').classList.remove('hidden');
-    $('summary').innerHTML = m.final !== m.original
-      ? `Simulated rate ${pct(baseline.rate)} → <b>${pct(m.final_score.rate)}</b>, and every statement in the new version is backed by the original page.`
-      : `No edit cleared the noise bar, so the page stays as it is. At this sample size that's the honest answer.`;
-    $('orig').textContent = 'BEFORE\n\n' + m.original.slice(0, 4000); $('fin').textContent = 'AFTER\n\n' + m.final.slice(0, 4000);
+    const changed = m.final !== m.original, a = m.attempt;
+    let right = m.final, label = 'Optimized page (kept)';
+    if (changed) {
+      $('summary').innerHTML = `Simulated rate ${pct(baseline.rate)} → <b>${pct(m.final_score.rate)}</b>, and every statement in the new version is backed by the current page.`;
+    } else if (a) {
+      right = a.page; label = `Best edit tried: ${OPS[a.op]} (not kept)`;
+      $('summary').innerHTML = `No edit cleared the noise bar, so the page would stay as it is. The best attempt (${OPS[a.op]}) scored ${pct(a.score.rate)} vs ${pct(baseline.rate)}, which is within noise at 32 answers. Here it is for comparison.`;
+    } else {
+      $('summary').innerHTML = `Every attempted edit was rejected by the claim checker, so there's nothing to compare.`;
+    }
+    $('finlabel').textContent = label;
+    renderDiff(m.original, right);
   }
+}
+
+// Line diff (LCS) so the comparison shows exactly what changed.
+function renderDiff(a, b) {
+  const A = a.split('\n'), B = b.split('\n'), n = A.length, m = B.length;
+  const L = Array.from({length: n + 1}, () => new Uint16Array(m + 1));
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    L[i][j] = A[i].trim() === B[j].trim() ? L[i + 1][j + 1] + 1 : Math.max(L[i + 1][j], L[i][j + 1]);
+  const left = [], right = []; let i = 0, j = 0;
+  while (i < n && j < m) {
+    if (A[i].trim() === B[j].trim()) { left.push(['', A[i++]]); right.push(['', B[j++]]); }
+    else if (L[i + 1][j] >= L[i][j + 1]) left.push(['del', A[i++]]); else right.push(['add', B[j++]]);
+  }
+  while (i < n) left.push(['del', A[i++]]); while (j < m) right.push(['add', B[j++]]);
+  const html = rows => rows.map(([c, t]) => `<div${c ? ` class="${c}"` : ''}>${esc(t) || '&nbsp;'}</div>`).join('');
+  $('orig').innerHTML = html(left); $('fin').innerHTML = html(right);
 }
 </script>
 </body></html>
