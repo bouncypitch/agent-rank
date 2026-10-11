@@ -44,6 +44,30 @@ def probe_mentions(name: str) -> dict:
     return out
 
 
+KNOWN_NAMES = {t["url"].split("//")[1].removeprefix("www.").split("/")[0]: t["name"]
+               for t in json.loads((ROOT / "data" / "targets.json").read_text())["targets"]}
+KNOWN_NAMES.update({"kassowrobots.com": "Kassow Robots", "formic.co": "Formic", "kinovarobotics.com": "Kinova"})
+
+
+def infer_name(url: str) -> str:
+    """Company name from our target list, else the page <title> segment that best matches the domain."""
+    domain = re.sub(r"^https?://(www\.)?", "", url).split("/")[0].lower()
+    if domain in KNOWN_NAMES:
+        return KNOWN_NAMES[domain]
+    stem = domain.split(".")[0].replace("-", "")
+    try:
+        html = pages.requests.get(url, timeout=15, headers={"User-Agent": pages.UA}).text[:200_000]
+        title = re.search(r"<title[^>]*>(.*?)</title>", html, re.S | re.I)
+        parts = [p.strip() for p in re.split(r"[|\-–—:·]", title.group(1))] if title else []
+        parts = [p for p in parts if 2 < len(p) < 40]
+        best = max(parts, key=lambda p: sum(c in stem for c in p.lower().replace(" ", "")) / len(p), default=None)
+        if best:
+            return best
+    except Exception:
+        pass
+    return stem.capitalize()
+
+
 def score(page, target, contexts):
     rate = optimizer.score(page, target, contexts, SAMPLES)
     n = len(contexts) * SAMPLES
@@ -107,8 +131,10 @@ def run(url: str, name: str, emit):
 def api_run():
     body = request.get_json(force=True)
     url, name = (body.get("url") or "").strip(), (body.get("name") or "").strip()
-    if not re.match(r"^https?://", url) or not name:
-        return Response(json.dumps({"event": "error", "msg": "Enter a full URL (https://…) and the company name."}) + "\n",
+    if url and not re.match(r"^https?://", url):
+        url = "https://" + url
+    if not re.match(r"^https?://[^/\s]+\.[^/\s]+", url):
+        return Response(json.dumps({"event": "error", "msg": "Enter a company website, e.g. doosanrobotics.com"}) + "\n",
                         mimetype="application/x-ndjson")
     q = queue.Queue()
 
@@ -117,7 +143,9 @@ def api_run():
 
     def worker():
         try:
-            run(url, name, emit)
+            company = name or infer_name(url)
+            emit("company", {"name": company, "url": url})
+            run(url, company, emit)
         except store.BudgetExceeded as ex:
             emit("error", {"msg": f"Budget cap reached: {ex}"})
         except Exception as ex:  # surface failures in the UI instead of hanging the stream
