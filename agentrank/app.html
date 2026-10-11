@@ -42,6 +42,12 @@ pre{white-space:pre-wrap;background:var(--soft);border-radius:10px;padding:12px;
 .cmp h3{margin:0 0 6px;font:600 15px 'IBM Plex Sans',Arial;color:var(--muted)}
 .pane{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13.5px;line-height:1.45;max-height:560px;overflow:auto;white-space:pre-wrap}
 .pane div{padding:1px 4px;border-radius:4px;min-height:1.2em} .del{background:#FBE6DB} .add{background:#E2F0DE}
+.tabs{display:flex;gap:6px;margin:10px 0} .tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;font:inherit;font-size:14px;cursor:pointer;color:var(--ink)} .tab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.wide{width:min(1500px,96vw);position:relative;left:50%;transform:translateX(-50%)}
+.sites{display:grid;grid-template-columns:1fr 1fr;gap:16px} @media(max-width:900px){.sites{grid-template-columns:1fr}}
+figure{margin:0} figcaption{font-weight:600;font-size:15px;margin-bottom:6px;text-align:center}
+.frame{position:relative;width:100%;aspect-ratio:1280/1500;overflow:hidden;border:1px solid var(--line);border-radius:12px;background:#fff;box-shadow:0 2px 14px rgba(18,26,43,.08)}
+.frame iframe{position:absolute;top:0;left:0;width:1280px;height:1500px;border:0;transform-origin:0 0}
 .fine{font-size:13px;color:var(--muted);text-align:center;margin-top:8px}
 .hidden{display:none}
 </style></head><body>
@@ -62,8 +68,13 @@ pre{white-space:pre-wrap;background:var(--soft);border-radius:10px;padding:12px;
   <section class="block hidden" id="base"><h2>Simulated recommendation rate</h2><div id="baseout"></div></section>
   <section class="block hidden" id="opt"><h2>Optimization</h2><div id="rounds"></div></section>
   <section class="block hidden" id="res"><h2>Result</h2><p id="summary"></p>
-    <div class="cmp"><div><h3>Current page</h3><div class="pane" id="orig"></div></div><div><h3 id="finlabel">Optimized page</h3><div class="pane" id="fin"></div></div></div>
-    <p class="ci">Highlighted: <span class="del">removed or changed</span> on the left, <span class="add">added or changed</span> on the right. Extracted page text, not the visual design.</p></section>
+    <div class="tabs" role="tablist"><button class="tab on" id="tw" role="tab" aria-selected="true">Website</button><button class="tab" id="tt" role="tab" aria-selected="false">Text changes</button></div>
+    <div id="webview" class="wide"><div class="sites">
+      <figure><figcaption>Today — the live site</figcaption><div class="frame"><iframe id="fb" title="Current website" sandbox="allow-scripts" loading="lazy"></iframe></div></figure>
+      <figure><figcaption id="falabel">With AgentRank's changes</figcaption><div class="frame"><iframe id="fa" title="Website with proposed changes" sandbox="allow-scripts allow-same-origin" loading="lazy"></iframe></div></figure>
+    </div><p class="ci" style="text-align:center">Right: the content AgentRank proposes adding (orange box), shown above the same live page. Nothing is changed on the real site.</p></div>
+    <div id="textview" class="hidden"><div class="cmp"><div><h3>Current page</h3><div class="pane" id="orig"></div></div><div><h3 id="finlabel">Optimized page</h3><div class="pane" id="fin"></div></div></div>
+    <p class="ci">Highlighted: <span class="del">removed or changed</span> on the left, <span class="add">added or changed</span> on the right.</p></div></section>
   <p class="fine">Simulated, not validated: a cheap model stands in for AI engines (it matches their overall brand rankings, ρ 0.76–0.91). Edits are kept only when the gain clears the noise. Our pre-registered real-engine test did not pass — <a href="https://bouncypitch.github.io/agent-rank/">details</a>.</p>
 </main>
 <script>
@@ -78,7 +89,7 @@ const $ = id => document.getElementById(id), pct = x => (x * 100).toFixed(0) + '
 const OPS = {answer_first:'Answer first', specs_table:'Specs table', use_case_sections:'Use-case sections', customer_evidence:'Customer evidence', price_signal:'Price signal', specificity:'Specificity', buyer_faq:'Buyer FAQ'};
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const ciBar = s => `<div class="ci-bar" aria-hidden="true"><span style="left:${s.lo*100}%;width:${(s.hi-s.lo)*100}%"></span><i style="left:calc(${s.rate*100}% - 1px)"></i></div>`;
-let baseline = null, name = '', busy = false;
+let baseline = null, name = '', busy = false, analyzedUrl = '';
 
 EXAMPLES.forEach(([n, u]) => {
   const b = document.createElement('button'); b.className = 'chip'; b.type = 'button'; b.textContent = n;
@@ -107,7 +118,7 @@ async function analyze(url, n) {
 function handle(m) {
   if (m.event === 'status') $('status').textContent = m.msg;
   if (m.event === 'error') $('status').innerHTML = `<span style="color:var(--bad)">${esc(m.msg)}</span>`;
-  if (m.event === 'company') { name = m.name; $('who').classList.remove('hidden'); $('who').innerHTML = `${esc(m.name)}<a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.url.replace(/^https?:\/\//, ''))}</a>`; }
+  if (m.event === 'company') { name = m.name; analyzedUrl = m.url; $('who').classList.remove('hidden'); $('who').innerHTML = `${esc(m.name)}<a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.url.replace(/^https?:\/\//, ''))}</a>`; }
   if (m.event === 'probe') {
     $('diag').classList.remove('hidden');
     $('probe').innerHTML = Object.entries(m).filter(([k]) => k !== 'event')
@@ -138,9 +149,18 @@ function handle(m) {
       $('summary').innerHTML = `Every attempted edit was rejected by the claim checker, so there's nothing to compare.`;
     }
     $('finlabel').textContent = label;
+    $('falabel').textContent = changed ? "With AgentRank's changes (kept)" : (a ? `With the best edit tried — ${OPS[a.op]} (not kept)` : 'No changes to show');
     renderDiff(m.original, right);
+    const u = encodeURIComponent(analyzedUrl);
+    $('fb').src = `/preview?v=before&url=${u}`; $('fa').src = `/preview?v=after&url=${u}`;
+    fit();
   }
 }
+
+function fit() { document.querySelectorAll('.frame').forEach(f => { const ifr = f.querySelector('iframe'); ifr.style.transform = `scale(${f.clientWidth / 1280})`; }); }
+addEventListener('resize', fit);
+$('tw').onclick = () => { $('webview').classList.remove('hidden'); $('textview').classList.add('hidden'); $('tw').classList.add('on'); $('tt').classList.remove('on'); $('tw').setAttribute('aria-selected','true'); $('tt').setAttribute('aria-selected','false'); fit(); };
+$('tt').onclick = () => { $('textview').classList.remove('hidden'); $('webview').classList.add('hidden'); $('tt').classList.add('on'); $('tw').classList.remove('on'); $('tt').setAttribute('aria-selected','true'); $('tw').setAttribute('aria-selected','false'); };
 
 // Line diff (LCS) so the comparison shows exactly what changed.
 function renderDiff(a, b) {
